@@ -22,8 +22,12 @@ function AppContent() {
   const location = useLocation();
 
   useEffect(() => {
+    if (location.hash === '#hero') {
+      const t = setTimeout(() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' }), 150);
+      return () => clearTimeout(t);
+    }
     window.scrollTo(0, 0);
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     const cleanups = [];

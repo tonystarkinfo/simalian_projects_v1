@@ -2,8 +2,23 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ModalOverlay from '../components/ModalOverlay';
 
+const GALLERY_IMAGES = {
+  'modal-corte': ['/assets/img/servicos/corte-plasma-laser/01.jpg', '/assets/img/servicos/corte-plasma-laser/02.jpg', '/assets/img/servicos/corte-plasma-laser/03.jpg'],
+  'modal-conformacao': ['/assets/img/servicos/dobra-calandragem/01.jpg', '/assets/img/servicos/dobra-calandragem/02.jpg', '/assets/img/servicos/dobra-calandragem/03.jpg'],
+  'modal-soldadura': ['/assets/img/servicos/soldadura-mig-mag-tig/01.jpg', '/assets/img/servicos/soldadura-mig-mag-tig/02.jpg', '/assets/img/servicos/soldadura-mig-mag-tig/03.jpg'],
+};
+
 export default function ServicosPage() {
   const [activeModalId, setActiveModalId] = useState(null);
+  const [mainImageByModal, setMainImageByModal] = useState({
+    'modal-corte': GALLERY_IMAGES['modal-corte'][0],
+    'modal-conformacao': GALLERY_IMAGES['modal-conformacao'][0],
+    'modal-soldadura': GALLERY_IMAGES['modal-soldadura'][0],
+  });
+
+  function setGalleryMain(modalId, src) {
+    setMainImageByModal((prev) => ({ ...prev, [modalId]: src }));
+  }
 
   function openModal(e, modalId) {
     e.preventDefault();
@@ -116,18 +131,14 @@ export default function ServicosPage() {
       <ModalOverlay id="modal-corte" titleId="modal-corte-title" title="Corte Plasma &amp; Laser CNC" isActive={activeModalId === 'modal-corte'} onClose={closeModal}>
         <div className="modal-gallery" data-service="corte-plasma-laser">
           <div className="modal-gallery__main">
-            <img src="/assets/img/servicos/corte-plasma-laser/01.jpg" alt="Corte plasma e laser CNC — vista principal" />
+            <img src={mainImageByModal['modal-corte']} alt="Corte plasma e laser CNC — vista principal" />
           </div>
           <div className="modal-gallery__thumbs">
-            <button type="button" className="modal-gallery__thumb is-active" aria-label="Ver imagem 1">
-              <img src="/assets/img/servicos/corte-plasma-laser/01.jpg" alt="" data-full="/assets/img/servicos/corte-plasma-laser/01.jpg" />
-            </button>
-            <button type="button" className="modal-gallery__thumb" aria-label="Ver imagem 2">
-              <img src="/assets/img/servicos/corte-plasma-laser/02.jpg" alt="" data-full="/assets/img/servicos/corte-plasma-laser/02.jpg" />
-            </button>
-            <button type="button" className="modal-gallery__thumb" aria-label="Ver imagem 3">
-              <img src="/assets/img/servicos/corte-plasma-laser/03.jpg" alt="" data-full="/assets/img/servicos/corte-plasma-laser/03.jpg" />
-            </button>
+            {GALLERY_IMAGES['modal-corte'].map((src, i) => (
+              <button key={src} type="button" className={`modal-gallery__thumb ${mainImageByModal['modal-corte'] === src ? 'is-active' : ''}`} aria-label={`Ver imagem ${i + 1}`} onClick={() => setGalleryMain('modal-corte', src)}>
+                <img src={src} alt="" data-full={src} />
+              </button>
+            ))}
           </div>
         </div>
         <h4><i className="fa-solid fa-list" aria-hidden="true"></i> Processos Disponíveis</h4>
@@ -150,12 +161,14 @@ export default function ServicosPage() {
       <ModalOverlay id="modal-conformacao" titleId="modal-conformacao-title" title="Dobra &amp; Calandragem" isActive={activeModalId === 'modal-conformacao'} onClose={closeModal}>
         <div className="modal-gallery" data-service="dobra-calandragem">
           <div className="modal-gallery__main">
-            <img src="/assets/img/servicos/dobra-calandragem/01.jpg" alt="Dobra e calandragem — vista principal" />
+            <img src={mainImageByModal['modal-conformacao']} alt="Dobra e calandragem — vista principal" />
           </div>
           <div className="modal-gallery__thumbs">
-            <button type="button" className="modal-gallery__thumb is-active" aria-label="Ver imagem 1"><img src="/assets/img/servicos/dobra-calandragem/01.jpg" alt="" data-full="/assets/img/servicos/dobra-calandragem/01.jpg" /></button>
-            <button type="button" className="modal-gallery__thumb" aria-label="Ver imagem 2"><img src="/assets/img/servicos/dobra-calandragem/02.jpg" alt="" data-full="/assets/img/servicos/dobra-calandragem/02.jpg" /></button>
-            <button type="button" className="modal-gallery__thumb" aria-label="Ver imagem 3"><img src="/assets/img/servicos/dobra-calandragem/03.jpg" alt="" data-full="/assets/img/servicos/dobra-calandragem/03.jpg" /></button>
+            {GALLERY_IMAGES['modal-conformacao'].map((src, i) => (
+              <button key={src} type="button" className={`modal-gallery__thumb ${mainImageByModal['modal-conformacao'] === src ? 'is-active' : ''}`} aria-label={`Ver imagem ${i + 1}`} onClick={() => setGalleryMain('modal-conformacao', src)}>
+                <img src={src} alt="" data-full={src} />
+              </button>
+            ))}
           </div>
         </div>
         <h4><i className="fa-solid fa-list" aria-hidden="true"></i> Capacidades</h4>
@@ -171,12 +184,14 @@ export default function ServicosPage() {
       <ModalOverlay id="modal-soldadura" titleId="modal-soldadura-title" title="Soldadura MIG/MAG/TIG" isActive={activeModalId === 'modal-soldadura'} onClose={closeModal}>
         <div className="modal-gallery" data-service="soldadura-mig-mag-tig">
           <div className="modal-gallery__main">
-            <img src="/assets/img/servicos/soldadura-mig-mag-tig/01.jpg" alt="Soldadura MIG MAG TIG — vista principal" />
+            <img src={mainImageByModal['modal-soldadura']} alt="Soldadura MIG MAG TIG — vista principal" />
           </div>
           <div className="modal-gallery__thumbs">
-            <button type="button" className="modal-gallery__thumb is-active" aria-label="Ver imagem 1"><img src="/assets/img/servicos/soldadura-mig-mag-tig/01.jpg" alt="" data-full="/assets/img/servicos/soldadura-mig-mag-tig/01.jpg" /></button>
-            <button type="button" className="modal-gallery__thumb" aria-label="Ver imagem 2"><img src="/assets/img/servicos/soldadura-mig-mag-tig/02.jpg" alt="" data-full="/assets/img/servicos/soldadura-mig-mag-tig/02.jpg" /></button>
-            <button type="button" className="modal-gallery__thumb" aria-label="Ver imagem 3"><img src="/assets/img/servicos/soldadura-mig-mag-tig/03.jpg" alt="" data-full="/assets/img/servicos/soldadura-mig-mag-tig/03.jpg" /></button>
+            {GALLERY_IMAGES['modal-soldadura'].map((src, i) => (
+              <button key={src} type="button" className={`modal-gallery__thumb ${mainImageByModal['modal-soldadura'] === src ? 'is-active' : ''}`} aria-label={`Ver imagem ${i + 1}`} onClick={() => setGalleryMain('modal-soldadura', src)}>
+                <img src={src} alt="" data-full={src} />
+              </button>
+            ))}
           </div>
         </div>
         <h4><i className="fa-solid fa-list" aria-hidden="true"></i> Processos de Soldadura</h4>

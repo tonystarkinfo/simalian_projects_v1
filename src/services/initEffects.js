@@ -179,8 +179,14 @@ export function initTechNav() {
     }
   });
   if (!sections.length) return () => {};
+  techLinks.forEach(l => l.classList.remove('tech-nav__link--active'));
+  let initialPass = true;
   const observer = new IntersectionObserver(
     (entries) => {
+      if (initialPass) {
+        initialPass = false;
+        return;
+      }
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           techLinks.forEach(l => l.classList.remove('tech-nav__link--active'));

@@ -23,8 +23,18 @@ export default function NavFloat() {
   return (
     <nav className="nav-float" role="navigation" aria-label="Navegação principal">
       <div className="nav-float__inner">
-        <Link to="/" className="nav-float__logo" aria-label="SIMALIAN PROJECTS — Página inicial">
-          <span className="nav-float__logo-text">{path === '/' || path === '' ? 'SIMALIAN PROJECTS' : 'SIMALIAN'}</span>
+        <Link
+          to="/#hero"
+          className="nav-float__logo"
+          aria-label="Ir para imagem principal — Hero"
+          onClick={(e) => {
+            if (path === '/' || path === '') {
+              e.preventDefault();
+              document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+        >
+          <img src="/assets/img/servicos/imagens-logos/Nome+logo.png" alt="SIMALIAN PROJECTS" className="nav-float__logo-img" />
         </Link>
         <Link to="/" className={linkClass('/')} aria-current={ariaCurrent('/') ? 'page' : undefined}>
           <i className="fa-solid fa-house" aria-hidden="true"></i>

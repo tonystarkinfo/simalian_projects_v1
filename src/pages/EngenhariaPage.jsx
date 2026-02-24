@@ -27,10 +27,7 @@ export default function EngenhariaPage() {
         <section className="section section--no-padding-bottom">
           <div className="container">
             <nav className="tech-nav" aria-label="Navegação técnica">
-              <a href="#estudos" className="tech-nav__link tech-nav__link--active">Estudos Técnicos</a>
-              <a href="#materiais" className="tech-nav__link">Materiais &amp; Processos</a>
-              <a href="#montagem-metodos" className="tech-nav__link">Montagem &amp; Métodos</a>
-              <a href="#qualidade-proc" className="tech-nav__link">Qualidade</a>
+              <a href="#estudos" className="tech-nav__link">Estudos Técnicos</a>
               <a href="#diagramas" className="tech-nav__link">Diagramas &amp; Fluxos</a>
               <a href="#downloads" className="tech-nav__link">Downloads</a>
             </nav>
