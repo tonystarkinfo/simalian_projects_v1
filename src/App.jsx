@@ -5,6 +5,9 @@ import Footer from './components/Footer';
 import CookieBanner from './components/CookieBanner';
 import HomePage from './pages/HomePage';
 import ServicosPage from './pages/ServicosPage';
+import ServicoSiderurgica from './pages/ServicoSiderurgica';
+import ServicoObra from './pages/ServicoObra';
+import ServicoMantenimiento from './pages/ServicoMantenimiento';
 import EngenhariaPage from './pages/EngenhariaPage';
 import ContatoPage from './pages/ContatoPage';
 import {
@@ -13,9 +16,6 @@ import {
   initSmoothScroll,
   initMobileKeyboard,
   initModalGallery,
-  initVideoFallback,
-  initCinematicScroll,
-  initTechNav,
 } from './services/initEffects';
 
 function AppContent() {
@@ -62,6 +62,9 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/servicos" element={<ServicosPage />} />
+        <Route path="/servicos/siderurgica" element={<ServicoSiderurgica />} />
+        <Route path="/servicos/obra-construccion" element={<ServicoObra />} />
+        <Route path="/servicos/mantenimiento-reparaciones" element={<ServicoMantenimiento />} />
         <Route path="/engenharia" element={<EngenhariaPage />} />
         <Route path="/contato" element={<ContatoPage />} />
       </Routes>

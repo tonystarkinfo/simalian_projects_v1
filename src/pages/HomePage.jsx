@@ -1,68 +1,49 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { initVideoFallback, initCinematicScroll } from '../services/initEffects';
+
+const HOME_HERO_SERVICES = [
+  {
+    to: '/servicos/siderurgica',
+    title: 'Siderúrgica',
+    icon: 'fa-industry',
+    image: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200&q=80',
+  },
+  {
+    to: '/servicos/obra-construccion',
+    title: 'Obra / Construcción',
+    icon: 'fa-hard-hat',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80',
+  },
+  {
+    to: '/servicos/mantenimiento-reparaciones',
+    title: 'Mantenimiento / Reparaciones',
+    icon: 'fa-wrench',
+    image: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1200&q=80',
+  },
+];
 
 export default function HomePage() {
-  useEffect(() => {
-    const t = setTimeout(() => {
-      initVideoFallback();
-      initCinematicScroll();
-    }, 0);
-    return () => clearTimeout(t);
-  }, []);
-
   return (
     <>
-      <header className="hero" id="hero">
-        <div className="hero__video-wrap" aria-hidden="true">
-          <video
-            className="hero__video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=80"
-          >
-            <source src="https://videos.pexels.com/video-files/5532773/5532773-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-          </video>
-          <img
-            className="hero__video-fallback"
-            src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=80"
-            alt=""
-            loading="eager"
-          />
+      <section className="home-hero" id="hero" aria-labelledby="home-hero-heading">
+        <h2 id="home-hero-heading" className="sr-only">Serviços — Siderúrgica, Obra e Construcción, Mantenimiento e Reparaciones</h2>
+        <div className="home-hero__grid">
+          {HOME_HERO_SERVICES.map(({ to, title, icon, image }) => (
+            <div key={to} className="home-hero__column">
+              <div className="home-hero__bg" style={{ backgroundImage: `url(${image})` }} aria-hidden="true" />
+              <div className="home-hero__overlay" aria-hidden="true" />
+              <div className="home-hero__content">
+                <span className="home-hero__title">{title}</span>
+                <div className="home-hero__actions">
+                  <Link to={to} className="home-hero__btn home-hero__btn--secondary">
+                    <i className={`fa-solid ${icon}`} aria-hidden="true"></i>
+                    Ver Serviço
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-        <div className="hero__overlay" aria-hidden="true"></div>
-        <div className="hero__geo" aria-hidden="true">
-          <div className="hero__geo-line hero__geo-line--1"></div>
-          <div className="hero__geo-line hero__geo-line--2"></div>
-          <div className="hero__geo-line hero__geo-line--3"></div>
-        </div>
-        <div className="container hero__content">
-          <span className="hero__label">Engenharia Metálica Industrial</span>
-          <h1 className="hero__title">
-            Engenharia metálica completa<br />para quem <em>não pode falhar</em>
-          </h1>
-          <p className="hero__subtitle">
-            Produção, montagem e manutenção com equipa própria — soluções para grandes indústrias e empresas de menor dimensão que exigem a mesma precisão.
-          </p>
-          <div className="hero__actions">
-            <Link to="/servicos" className="btn btn--primary btn--lg">
-              <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              Ver Serviços
-            </Link>
-            <Link to="/contato" className="btn btn--secondary btn--lg">
-              <i className="fa-solid fa-message" aria-hidden="true"></i>
-              Falar com a SIMALIAN
-            </Link>
-          </div>
-        </div>
-        <div className="hero__scroll-indicator" aria-hidden="true">
-          <span>Explorar</span>
-          <i className="fa-solid fa-chevron-down"></i>
-        </div>
-      </header>
+      </section>
 
       <main>
         <section className="section section--deep bg-grid" id="ciclo" aria-labelledby="cycle-heading">

@@ -12,8 +12,7 @@ export async function submitFormData(data) {
     });
     if (!response.ok) throw new Error('Submit failed');
     return await response.json();
-  } catch (err) {
-    console.info('Form submission stored locally. API response:', err.message);
+  } catch {
     return Promise.resolve();
   }
 }

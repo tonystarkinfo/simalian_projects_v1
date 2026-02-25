@@ -1,12 +1,28 @@
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+
+const SERVICOS_SUBLINKS = [
+  { to: '/servicos/siderurgica', label: 'Siderúrgica', icon: 'fa-industry' },
+  { to: '/servicos/obra-construccion', label: 'Obra / Construcción', icon: 'fa-hard-hat' },
+  { to: '/servicos/mantenimiento-reparaciones', label: 'Mantenimiento / Reparaciones', icon: 'fa-wrench' },
+];
 
 /**
  * NavFloat — same structure and classes as original.
- * Active link derived from current path (same behavior as initNavigation).
+ * Serviços expands inline to show 3 sub-links (no dropdown).
  */
 export default function NavFloat() {
   const location = useLocation();
   const path = location.pathname;
+  const [isServicesExpanded, setServicesExpanded] = useState(false);
+
+  useEffect(() => {
+    if (path === '/servicos' || path.startsWith('/servicos/')) {
+      setServicesExpanded(true);
+    } else {
+      setServicesExpanded(false);
+    }
+  }, [path]);
 
   const linkClass = (to) => {
     const isRoot = path === '/' || path === '';
@@ -20,9 +36,18 @@ export default function NavFloat() {
     return match ? 'page' : undefined;
   };
 
+  const handleServicosClick = (e) => {
+    if (isServicesExpanded && (path === '/servicos' || path.startsWith('/servicos/'))) {
+      e.preventDefault();
+      setServicesExpanded(false);
+    } else {
+      setServicesExpanded(true);
+    }
+  };
+
   return (
     <nav className="nav-float" role="navigation" aria-label="Navegação principal">
-      <div className="nav-float__inner">
+      <div className={`nav-float__inner ${isServicesExpanded ? 'nav-float__inner--services-expanded' : ''}`}>
         <Link
           to="/#hero"
           className="nav-float__logo"
@@ -40,10 +65,29 @@ export default function NavFloat() {
           <i className="fa-solid fa-house" aria-hidden="true"></i>
           <span>{path === '/' || path === '' ? 'Principal' : 'Home'}</span>
         </Link>
-        <Link to="/servicos" className={linkClass('/servicos')} aria-current={ariaCurrent('/servicos') ? 'page' : undefined}>
+        <Link
+          to="/servicos"
+          className={linkClass('/servicos')}
+          aria-current={ariaCurrent('/servicos') ? 'page' : undefined}
+          aria-expanded={isServicesExpanded}
+          onClick={handleServicosClick}
+        >
           <i className="fa-solid fa-gear" aria-hidden="true"></i>
           <span>Serviços</span>
         </Link>
+        <div className="nav-float__services-extra" aria-hidden={!isServicesExpanded}>
+          {SERVICOS_SUBLINKS.map(({ to, label, icon }) => (
+            <Link
+              key={to}
+              to={to}
+              className={linkClass(to)}
+              aria-current={ariaCurrent(to) ? 'page' : undefined}
+            >
+              <i className={`fa-solid ${icon}`} aria-hidden="true"></i>
+              <span>{label}</span>
+            </Link>
+          ))}
+        </div>
         {path === '/' || path === '' ? null : (
           <Link to="/engenharia" className={linkClass('/engenharia')} aria-current={ariaCurrent('/engenharia') ? 'page' : undefined}>
             <i className="fa-solid fa-compass-drafting" aria-hidden="true"></i>
