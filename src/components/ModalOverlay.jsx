@@ -72,7 +72,7 @@ export default function ModalOverlay({ id, titleId, title, isActive, onClose, ch
           {children}
         </div>
         <div className="modal__footer">
-          <Link to="/contato" className="btn btn--primary btn--sm" onClick={onClose}>{footerLinkText}</Link>
+          <Link to="/contato" className="btn btn--primary btn--orcamento btn--sm" onClick={onClose}>{footerLinkText}</Link>
         </div>
       </div>
     </div>

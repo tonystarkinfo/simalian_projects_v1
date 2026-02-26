@@ -84,7 +84,7 @@ export default function ServicosPage() {
                 onKeyDown={(e) => handleCardKeyDown(e, 'modal-conformacao')}
               >
                 <div className="service-card__img-wrap">
-                  <div className="service-card__icon"><i className="fa-solid fa-arrows-turn-to-dots" aria-hidden="true"></i></div>
+                  <div className="service-card__icon"><i className="fa-solid fa-arrows-to-dot" aria-hidden="true"></i></div>
                   <img className="service-card__img" src="/assets/img/servicos/dobra-calandragem/01.jpg" alt="Dobra e calandragem de chapa em quinadora CNC" loading="lazy" width="800" height="450" />
                 </div>
                 <div className="service-card__body">
@@ -120,7 +120,7 @@ export default function ServicosPage() {
           <div className="container">
             <h2 id="cta-servicos" className="reveal">Precisa de um serviço <em className="em--secondary">específico</em>?</h2>
             <p className="reveal reveal--delay-1">Descreva o seu projeto e receba uma proposta detalhada. A SIMALIAN adapta-se à sua necessidade, independentemente da escala.</p>
-            <Link to="/contato" className="btn btn--primary btn--lg reveal reveal--delay-2">
+            <Link to="/contato" className="btn btn--primary btn--orcamento btn--lg reveal reveal--delay-2">
               <i className="fa-solid fa-paper-plane" aria-hidden="true"></i>
               Solicitar Orçamento
             </Link>

@@ -9,6 +9,10 @@
   --color-primary: #FF4C00;
   --color-primary-dark: #CC3D00;
   --color-primary-light: #FF6A2A;
+  /* Botão Solicitar Orçamento — verde que harmoniza com o laranja */
+  --color-orcamento: #2E7D32;
+  --color-orcamento-dark: #1B5E20;
+  --color-orcamento-active: #145214;
   --color-secondary: #232323;
   --color-secondary-dark: #1A1A1A;
   --color-tertiary: #FDFDFD;
@@ -387,6 +391,27 @@ p {
 
 .btn--primary:focus-visible {
   outline-color: var(--color-secondary);
+}
+
+/* Botão "Solicitar Orçamento" — verde (confiança, ação, aprovação) */
+.btn--orcamento {
+  background: var(--color-orcamento);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(46, 125, 50, 0.35);
+}
+.btn--orcamento:hover {
+  background: var(--color-orcamento-dark);
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.45);
+  transform: translateY(-2px);
+}
+.btn--orcamento:active {
+  background: var(--color-orcamento-active);
+  color: #FFFFFF;
+  transform: translateY(0);
+}
+.btn--orcamento:focus-visible {
+  outline-color: var(--color-orcamento-dark);
 }
 
 .btn--secondary {
@@ -1156,6 +1181,178 @@ p {
 }
 
 /* ============================================================
+   HOME — CONTACTO INSTITUCIONAL (abaixo do ciclo completo)
+   ============================================================ */
+.home-contact-institutional {
+  padding: var(--space-4xl) 0;
+}
+
+.home-contact-institutional__header {
+  margin-bottom: var(--space-2xl);
+}
+
+.home-contact-institutional__subtitle {
+  font-size: var(--fs-base);
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: var(--space-sm);
+  margin-bottom: 0;
+}
+
+.home-contact-institutional__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.home-contact-form__group {
+  margin-bottom: var(--space-lg);
+}
+
+.home-contact-form__group label {
+  display: block;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--space-xs);
+}
+
+.home-contact-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+.home-contact-form__input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: var(--fs-small);
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-contact-form__input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.home-contact-form__input:hover {
+  border-color: rgba(255, 76, 0, 0.4);
+  box-shadow: 0 0 0 1px rgba(255, 76, 0, 0.15);
+}
+
+.home-contact-form__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(255, 76, 0, 0.2);
+}
+
+.home-contact-form__textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.home-contact-form__btn {
+  width: 100%;
+  margin-top: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 14px rgba(46, 125, 50, 0.35);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.home-contact-form__btn:hover {
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.45);
+  transform: translateY(-2px);
+}
+
+.home-contact-form__feedback {
+  margin-top: var(--space-md);
+  font-size: var(--fs-small);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.home-contact-form__feedback--success {
+  color: #81C784;
+}
+
+.home-contact-form__feedback--error {
+  color: #EF9A9A;
+}
+
+.home-contact-institutional__card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+.home-contact-institutional__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding-bottom: var(--space-lg);
+}
+
+.home-contact-institutional__item:last-child {
+  padding-bottom: 0;
+}
+
+.home-contact-institutional__item > i {
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+  width: 24px;
+  text-align: center;
+}
+
+.home-contact-institutional__item div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.home-contact-institutional__label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.home-contact-institutional__item a,
+.home-contact-institutional__item span:not(.home-contact-institutional__label) {
+  color: white;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+}
+
+.home-contact-institutional__item a:hover {
+  color: var(--color-primary-light);
+}
+
+@media (max-width: 768px) {
+  .home-contact-institutional__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .home-contact-form__row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
    HIGHLIGHT / QUOTE SECTION
    ============================================================ */
 .highlight-section {
@@ -1368,6 +1565,21 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: var(--space-xl);
+}
+
+/* 3 colunas desktop, 2 tablet, 1 mobile — páginas Siderúrgica / Construcción / Mantenimiento */
+.services-grid--9 {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 1024px) {
+  .services-grid--9 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .services-grid--9 {
+    grid-template-columns: 1fr;
+  }
 }
 
 .service-card {
@@ -1702,6 +1914,12 @@ p {
 
 .modal__body {
   padding: var(--space-2xl);
+}
+
+.modal__body .modal__intro {
+  margin-bottom: var(--space-xl);
+  color: var(--color-text);
+  line-height: 1.6;
 }
 
 .modal__body h4 {

@@ -1,27 +1,63 @@
+import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { submitFormData } from '../services/formService';
+import { sanitize } from '../services/utils';
 
 const HOME_HERO_SERVICES = [
   {
-    to: '/servicos/siderurgica',
+    to: '/siderurgica',
     title: 'Siderúrgica',
     icon: 'fa-industry',
     image: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200&q=80',
   },
   {
-    to: '/servicos/obra-construccion',
-    title: 'Obra / Construcción',
+    to: '/construccion',
+    title: 'Construcción',
     icon: 'fa-hard-hat',
     image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80',
   },
   {
-    to: '/servicos/mantenimiento-reparaciones',
-    title: 'Mantenimiento / Reparaciones',
+    to: '/mantenimiento',
+    title: 'Mantenimiento',
     icon: 'fa-wrench',
     image: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1200&q=80',
   },
 ];
 
 export default function HomePage() {
+  const contactFormRef = useRef(null);
+  const [contactFeedback, setContactFeedback] = useState(null);
+
+  function handleHomeContactSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const nome = form.nome?.value?.trim();
+    const empresa = form.empresa?.value?.trim();
+    const email = form.email?.value?.trim();
+    const telefone = form.telefone?.value?.trim();
+    const mensagem = form.mensagem?.value?.trim();
+    if (!nome || !email || !mensagem) {
+      setContactFeedback('error');
+      return;
+    }
+    setContactFeedback(null);
+    const formData = {
+      nome: sanitize(nome),
+      empresa: sanitize(empresa || ''),
+      email: sanitize(email),
+      telefone: sanitize(telefone || ''),
+      servico: 'outro',
+      porte: '',
+      mensagem: sanitize(mensagem),
+    };
+    submitFormData(formData)
+      .then(() => {
+        setContactFeedback('success');
+        form.reset();
+      })
+      .catch(() => setContactFeedback('error'));
+  }
+
   return (
     <>
       <section className="home-hero" id="hero" aria-labelledby="home-hero-heading">
@@ -82,14 +118,95 @@ export default function HomePage() {
           </div>
         </section>
 
+        <section className="section section--deep home-contact-institutional" id="fale-projeto" aria-labelledby="home-contact-heading">
+          <div className="container">
+            <div className="section-header section-header--center home-contact-institutional__header">
+              <h2 id="home-contact-heading" className="section-heading--white reveal">Vamos falar sobre o seu projeto?</h2>
+              <p className="home-contact-institutional__subtitle reveal reveal--delay-1">Nossa equipa técnica está pronta para analisar a sua necessidade.</p>
+            </div>
+            <div className="home-contact-institutional__grid reveal reveal--delay-1">
+              <div className="home-contact-institutional__form-wrap">
+                <form ref={contactFormRef} onSubmit={handleHomeContactSubmit} className="home-contact-form" noValidate>
+                  <div className="home-contact-form__group">
+                    <label htmlFor="home-contact-nome">Nome</label>
+                    <input type="text" id="home-contact-nome" name="nome" className="home-contact-form__input" placeholder="Seu nome" required autoComplete="name" />
+                  </div>
+                  <div className="home-contact-form__group">
+                    <label htmlFor="home-contact-empresa">Empresa</label>
+                    <input type="text" id="home-contact-empresa" name="empresa" className="home-contact-form__input" placeholder="Empresa" autoComplete="organization" />
+                  </div>
+                  <div className="home-contact-form__row">
+                    <div className="home-contact-form__group">
+                      <label htmlFor="home-contact-email">E-mail</label>
+                      <input type="email" id="home-contact-email" name="email" className="home-contact-form__input" placeholder="email@empresa.com" required autoComplete="email" />
+                    </div>
+                    <div className="home-contact-form__group">
+                      <label htmlFor="home-contact-telefone">Telefone</label>
+                      <input type="tel" id="home-contact-telefone" name="telefone" className="home-contact-form__input" placeholder="+351 000 000 000" autoComplete="tel" />
+                    </div>
+                  </div>
+                  <div className="home-contact-form__group">
+                    <label htmlFor="home-contact-mensagem">Mensagem</label>
+                    <textarea id="home-contact-mensagem" name="mensagem" className="home-contact-form__input home-contact-form__textarea" placeholder="Breve descrição do seu projeto..." rows={3} required></textarea>
+                  </div>
+                  <button type="submit" className="btn btn--orcamento home-contact-form__btn">
+                    <i className="fa-solid fa-headset" aria-hidden="true"></i>
+                    Falar com Especialista
+                  </button>
+                  {contactFeedback === 'success' && (
+                    <p className="home-contact-form__feedback home-contact-form__feedback--success" role="alert">
+                      <i className="fa-solid fa-circle-check" aria-hidden="true"></i> Mensagem enviada. Entraremos em contacto em breve.
+                    </p>
+                  )}
+                  {contactFeedback === 'error' && (
+                    <p className="home-contact-form__feedback home-contact-form__feedback--error" role="alert">
+                      <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Erro ao enviar. Tente novamente ou contacte-nos diretamente.
+                    </p>
+                  )}
+                </form>
+              </div>
+              <div className="home-contact-institutional__card">
+                <div className="home-contact-institutional__item">
+                  <i className="fa-solid fa-phone" aria-hidden="true"></i>
+                  <div>
+                    <span className="home-contact-institutional__label">Telefone</span>
+                    <a href="tel:+351000000000">+351 000 000 000</a>
+                  </div>
+                </div>
+                <div className="home-contact-institutional__item">
+                  <i className="fa-solid fa-envelope" aria-hidden="true"></i>
+                  <div>
+                    <span className="home-contact-institutional__label">E-mail</span>
+                    <a href="mailto:geral@simalian.com">geral@simalian.com</a>
+                  </div>
+                </div>
+                <div className="home-contact-institutional__item">
+                  <i className="fa-solid fa-location-dot" aria-hidden="true"></i>
+                  <div>
+                    <span className="home-contact-institutional__label">Localização</span>
+                    <span>Portugal</span>
+                  </div>
+                </div>
+                <div className="home-contact-institutional__item">
+                  <i className="fa-solid fa-clock" aria-hidden="true"></i>
+                  <div>
+                    <span className="home-contact-institutional__label">Horário</span>
+                    <span>Seg – Sex: 8h30 – 18h00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="section section--primary highlight-section" aria-labelledby="highlight-heading">
           <div className="container">
-            <span className="section-label section-label--light" id="highlight-heading">Filosofia de Trabalho</span>
-            <blockquote className="highlight-section__quote">
+            <span className="section-label section-label--light reveal" id="highlight-heading">Filosofia de Trabalho</span>
+            <blockquote className="highlight-section__quote reveal reveal--delay-1">
               &quot;Se a SIMALIAN conduz o processo completo — do projeto à montagem final — o resultado é <em>inevitavelmente preciso</em>.&quot;
             </blockquote>
-            <div className="highlight-section__divider" aria-hidden="true"></div>
-            <p className="highlight-section__caption">
+            <div className="highlight-section__divider reveal reveal--delay-2" aria-hidden="true"></div>
+            <p className="highlight-section__caption reveal reveal--delay-2">
               Resultados superiores são alcançados quando uma única entidade controla engenharia, fabricação, montagem e manutenção. Sem interfaces desnecessárias. Sem perda de informação entre equipas.
             </p>
           </div>
@@ -216,7 +333,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="text-center-mt">
-              <Link to="/servicos" className="btn btn--outline">
+              <Link to="/siderurgica" className="btn btn--outline">
                 Ver Todos os Serviços
                 <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
               </Link>
@@ -228,7 +345,7 @@ export default function HomePage() {
           <div className="container">
             <h2 id="cta-heading" className="reveal">Pronto para um resultado <em className="em--secondary">preciso</em>?</h2>
             <p className="reveal reveal--delay-1">Contacte a SIMALIAN para discutir o seu projeto. Atendemos grandes indústrias e empresas de menor dimensão com o mesmo rigor técnico.</p>
-            <Link to="/contato" className="btn btn--primary btn--lg reveal reveal--delay-2">
+            <Link to="/contato" className="btn btn--primary btn--orcamento btn--lg reveal reveal--delay-2">
               <i className="fa-solid fa-paper-plane" aria-hidden="true"></i>
               Solicitar Orçamento
             </Link>

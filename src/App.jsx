@@ -62,9 +62,12 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/servicos" element={<ServicosPage />} />
-        <Route path="/servicos/siderurgica" element={<ServicoSiderurgica />} />
-        <Route path="/servicos/obra-construccion" element={<ServicoObra />} />
-        <Route path="/servicos/mantenimiento-reparaciones" element={<ServicoMantenimiento />} />
+        <Route path="/siderurgica" element={<ServicoSiderurgica />} />
+        <Route path="/construccion" element={<ServicoObra />} />
+        <Route path="/mantenimiento" element={<ServicoMantenimiento />} />
+        <Route path="/servicos/siderurgica" element={<Navigate to="/siderurgica" replace />} />
+        <Route path="/servicos/obra-construccion" element={<Navigate to="/construccion" replace />} />
+        <Route path="/servicos/mantenimiento-reparaciones" element={<Navigate to="/mantenimiento" replace />} />
         <Route path="/engenharia" element={<EngenhariaPage />} />
         <Route path="/contato" element={<ContatoPage />} />
       </Routes>

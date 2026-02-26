@@ -166,7 +166,7 @@ export default function ContatoPage() {
                     <textarea id="mensagem" name="mensagem" className="form-textarea" placeholder="Descreva o seu projeto, quantidades estimadas, prazos e qualquer detalhe relevante..." required aria-required="true" onBlur={handleBlur} onInput={handleInput}></textarea>
                     <div className="form-error" id="mensagem-error" role="alert">Por favor, descreva o seu projeto.</div>
                   </div>
-                  <button type="submit" className="btn btn--primary btn--lg btn--full-width" id="submitBtn">
+                  <button type="submit" className="btn btn--primary btn--orcamento btn--lg btn--full-width" id="submitBtn">
                     <span id="submitText">
                       <i className="fa-solid fa-paper-plane" aria-hidden="true"></i>
                       Enviar Pedido de Orçamento
