@@ -1,30 +1,17 @@
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 import { submitFormData } from '../services/formService';
 import { sanitize } from '../services/utils';
 
 const HOME_HERO_SERVICES = [
-  {
-    to: '/siderurgica',
-    title: 'Siderúrgica',
-    icon: 'fa-industry',
-    image: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200&q=80',
-  },
-  {
-    to: '/construccion',
-    title: 'Construcción',
-    icon: 'fa-hard-hat',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80',
-  },
-  {
-    to: '/mantenimiento',
-    title: 'Mantenimiento',
-    icon: 'fa-wrench',
-    image: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1200&q=80',
-  },
+  { to: '/siderurgica', key: 'siderurgica', icon: 'fa-industry', image: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200&q=80' },
+  { to: '/construccion', key: 'construccion', icon: 'fa-hard-hat', image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80' },
+  { to: '/mantenimiento', key: 'mantenimiento', icon: 'fa-wrench', image: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1200&q=80' },
 ];
 
 export default function HomePage() {
+  const { t } = useLanguage();
   const contactFormRef = useRef(null);
   const [contactFeedback, setContactFeedback] = useState(null);
 
@@ -63,16 +50,16 @@ export default function HomePage() {
       <section className="home-hero" id="hero" aria-labelledby="home-hero-heading">
         <h2 id="home-hero-heading" className="sr-only">Serviços — Siderúrgica, Obra e Construcción, Mantenimiento e Reparaciones</h2>
         <div className="home-hero__grid">
-          {HOME_HERO_SERVICES.map(({ to, title, icon, image }) => (
+          {HOME_HERO_SERVICES.map(({ to, key, icon, image }) => (
             <div key={to} className="home-hero__column">
               <div className="home-hero__bg" style={{ backgroundImage: `url(${image})` }} aria-hidden="true" />
               <div className="home-hero__overlay" aria-hidden="true" />
               <div className="home-hero__content">
-                <span className="home-hero__title">{title}</span>
+                <span className="home-hero__title">{t(`nav.${key}`)}</span>
                 <div className="home-hero__actions">
                   <Link to={to} className="home-hero__btn home-hero__btn--secondary">
                     <i className={`fa-solid ${icon}`} aria-hidden="true"></i>
-                    Ver Serviço
+                    {t('home.verServico')}
                   </Link>
                 </div>
               </div>
@@ -85,34 +72,34 @@ export default function HomePage() {
         <section className="section section--deep bg-grid" id="ciclo" aria-labelledby="cycle-heading">
           <div className="container">
             <div className="section-header section-header--center">
-              <span className="section-label section-label--light">Ciclo Completo</span>
-              <h2 id="cycle-heading" className="section-heading--white">O que fazemos de <em className="em--secondary">forma completa</em></h2>
-              <p>Da conceção ao produto final instalado, a SIMALIAN assume todas as etapas com equipa própria — garantindo controlo total da qualidade e cumprimento dos prazos.</p>
+              <span className="section-label section-label--light">{t('home.cycleLabel')}</span>
+              <h2 id="cycle-heading" className="section-heading--white">{t('home.cycleTitleBefore')}<em className="em--secondary">{t('home.cycleTitleEm')}</em></h2>
+              <p>{t('home.cycleIntro')}</p>
             </div>
             <div className="cycle-grid">
               <div className="cycle-card reveal">
-                <span className="cycle-card__step">Etapa 01</span>
+                <span className="cycle-card__step">{t('home.etapa')} 01</span>
                 <div className="cycle-card__icon"><i className="fa-solid fa-compass-drafting" aria-hidden="true"></i></div>
-                <h3 className="cycle-card__title">Engenharia &amp; Projeto</h3>
-                <p className="cycle-card__desc">Modelação 3D, cálculo estrutural, otimização de materiais e dimensionamento segundo normas europeias (EN) e internacionais (ASTM).</p>
+                <h3 className="cycle-card__title">{t('home.engProjeto')}</h3>
+                <p className="cycle-card__desc">{t('home.engDesc')}</p>
               </div>
               <div className="cycle-card reveal reveal--delay-1">
-                <span className="cycle-card__step">Etapa 02</span>
+                <span className="cycle-card__step">{t('home.etapa')} 02</span>
                 <div className="cycle-card__icon"><i className="fa-solid fa-industry" aria-hidden="true"></i></div>
-                <h3 className="cycle-card__title">Fabricação Metálica</h3>
-                <p className="cycle-card__desc">Corte plasma e laser CNC, dobra, calandragem, usinagem e soldadura MIG/MAG/TIG — tudo em instalações próprias com controlo rigoroso.</p>
+                <h3 className="cycle-card__title">{t('home.fabMetalica')}</h3>
+                <p className="cycle-card__desc">{t('home.fabDesc')}</p>
               </div>
               <div className="cycle-card reveal reveal--delay-2">
-                <span className="cycle-card__step">Etapa 03</span>
+                <span className="cycle-card__step">{t('home.etapa')} 03</span>
                 <div className="cycle-card__icon"><i className="fa-solid fa-helmet-safety" aria-hidden="true"></i></div>
-                <h3 className="cycle-card__title">Montagem com Equipa Própria</h3>
-                <p className="cycle-card__desc">Montadores qualificados para estruturas, tubulações e plataformas. Alinhamento de precisão, solda in situ e supervisão técnica permanente.</p>
+                <h3 className="cycle-card__title">{t('home.montagemTitle')}</h3>
+                <p className="cycle-card__desc">{t('home.montagemDesc')}</p>
               </div>
               <div className="cycle-card reveal reveal--delay-3">
-                <span className="cycle-card__step">Etapa 04</span>
+                <span className="cycle-card__step">{t('home.etapa')} 04</span>
                 <div className="cycle-card__icon"><i className="fa-solid fa-wrench" aria-hidden="true"></i></div>
-                <h3 className="cycle-card__title">Manutenção &amp; Reforços</h3>
-                <p className="cycle-card__desc">Inspeções periódicas, reparações estruturais, reforços, modernização de equipamentos e aumento de capacidade das instalações existentes.</p>
+                <h3 className="cycle-card__title">{t('home.manutencaoTitle')}</h3>
+                <p className="cycle-card__desc">{t('home.manutencaoDesc')}</p>
               </div>
             </div>
           </div>
@@ -121,46 +108,46 @@ export default function HomePage() {
         <section className="section section--deep home-contact-institutional" id="fale-projeto" aria-labelledby="home-contact-heading">
           <div className="container">
             <div className="section-header section-header--center home-contact-institutional__header">
-              <h2 id="home-contact-heading" className="section-heading--white reveal">Vamos falar sobre o seu projeto?</h2>
-              <p className="home-contact-institutional__subtitle reveal reveal--delay-1">Nossa equipa técnica está pronta para analisar a sua necessidade.</p>
+              <h2 id="home-contact-heading" className="section-heading--white reveal">{t('home.contactTitle')}</h2>
+              <p className="home-contact-institutional__subtitle reveal reveal--delay-1">{t('home.contactSubtitle')}</p>
             </div>
             <div className="home-contact-institutional__grid reveal reveal--delay-1">
               <div className="home-contact-institutional__form-wrap">
                 <form ref={contactFormRef} onSubmit={handleHomeContactSubmit} className="home-contact-form" noValidate>
                   <div className="home-contact-form__group">
-                    <label htmlFor="home-contact-nome">Nome</label>
-                    <input type="text" id="home-contact-nome" name="nome" className="home-contact-form__input" placeholder="Seu nome" required autoComplete="name" />
+                    <label htmlFor="home-contact-nome">{t('home.formNome')}</label>
+                    <input type="text" id="home-contact-nome" name="nome" className="home-contact-form__input" placeholder={t('home.formPlaceholderNome')} required autoComplete="name" />
                   </div>
                   <div className="home-contact-form__group">
-                    <label htmlFor="home-contact-empresa">Empresa</label>
-                    <input type="text" id="home-contact-empresa" name="empresa" className="home-contact-form__input" placeholder="Empresa" autoComplete="organization" />
+                    <label htmlFor="home-contact-empresa">{t('home.formEmpresa')}</label>
+                    <input type="text" id="home-contact-empresa" name="empresa" className="home-contact-form__input" placeholder={t('home.formPlaceholderEmpresa')} autoComplete="organization" />
                   </div>
                   <div className="home-contact-form__row">
                     <div className="home-contact-form__group">
-                      <label htmlFor="home-contact-email">E-mail</label>
-                      <input type="email" id="home-contact-email" name="email" className="home-contact-form__input" placeholder="email@empresa.com" required autoComplete="email" />
+                      <label htmlFor="home-contact-email">{t('home.formEmail')}</label>
+                      <input type="email" id="home-contact-email" name="email" className="home-contact-form__input" placeholder={t('home.formPlaceholderEmail')} required autoComplete="email" />
                     </div>
                     <div className="home-contact-form__group">
-                      <label htmlFor="home-contact-telefone">Telefone</label>
+                      <label htmlFor="home-contact-telefone">{t('home.formTelefone')}</label>
                       <input type="tel" id="home-contact-telefone" name="telefone" className="home-contact-form__input" placeholder="+351 000 000 000" autoComplete="tel" />
                     </div>
                   </div>
                   <div className="home-contact-form__group">
-                    <label htmlFor="home-contact-mensagem">Mensagem</label>
-                    <textarea id="home-contact-mensagem" name="mensagem" className="home-contact-form__input home-contact-form__textarea" placeholder="Breve descrição do seu projeto..." rows={3} required></textarea>
+                    <label htmlFor="home-contact-mensagem">{t('home.formMensagem')}</label>
+                    <textarea id="home-contact-mensagem" name="mensagem" className="home-contact-form__input home-contact-form__textarea" placeholder={t('home.formPlaceholderMensagem')} rows={3} required></textarea>
                   </div>
                   <button type="submit" className="btn btn--orcamento home-contact-form__btn">
                     <i className="fa-solid fa-headset" aria-hidden="true"></i>
-                    Falar com Especialista
+                    {t('home.falarEspecialista')}
                   </button>
                   {contactFeedback === 'success' && (
                     <p className="home-contact-form__feedback home-contact-form__feedback--success" role="alert">
-                      <i className="fa-solid fa-circle-check" aria-hidden="true"></i> Mensagem enviada. Entraremos em contacto em breve.
+                      <i className="fa-solid fa-circle-check" aria-hidden="true"></i> {t('home.msgSuccess')}
                     </p>
                   )}
                   {contactFeedback === 'error' && (
                     <p className="home-contact-form__feedback home-contact-form__feedback--error" role="alert">
-                      <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Erro ao enviar. Tente novamente ou contacte-nos diretamente.
+                      <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i> {t('home.msgError')}
                     </p>
                   )}
                 </form>
@@ -169,29 +156,29 @@ export default function HomePage() {
                 <div className="home-contact-institutional__item">
                   <i className="fa-solid fa-phone" aria-hidden="true"></i>
                   <div>
-                    <span className="home-contact-institutional__label">Telefone</span>
+                    <span className="home-contact-institutional__label">{t('home.labelTelefone')}</span>
                     <a href="tel:+351000000000">+351 000 000 000</a>
                   </div>
                 </div>
                 <div className="home-contact-institutional__item">
                   <i className="fa-solid fa-envelope" aria-hidden="true"></i>
                   <div>
-                    <span className="home-contact-institutional__label">E-mail</span>
+                    <span className="home-contact-institutional__label">{t('home.labelEmail')}</span>
                     <a href="mailto:geral@simalian.com">geral@simalian.com</a>
                   </div>
                 </div>
                 <div className="home-contact-institutional__item">
                   <i className="fa-solid fa-location-dot" aria-hidden="true"></i>
                   <div>
-                    <span className="home-contact-institutional__label">Localização</span>
-                    <span>Portugal</span>
+                    <span className="home-contact-institutional__label">{t('home.labelLocalizacao')}</span>
+                    <span>{t('home.portugal')}</span>
                   </div>
                 </div>
                 <div className="home-contact-institutional__item">
                   <i className="fa-solid fa-clock" aria-hidden="true"></i>
                   <div>
-                    <span className="home-contact-institutional__label">Horário</span>
-                    <span>Seg – Sex: 8h30 – 18h00</span>
+                    <span className="home-contact-institutional__label">{t('home.labelHorario')}</span>
+                    <span>{t('home.horarioValue')}</span>
                   </div>
                 </div>
               </div>
@@ -201,9 +188,9 @@ export default function HomePage() {
 
         <section className="section section--primary highlight-section" aria-labelledby="highlight-heading">
           <div className="container">
-            <span className="section-label section-label--light reveal" id="highlight-heading">Filosofia de Trabalho</span>
+            <span className="section-label section-label--light reveal" id="highlight-heading">{t('home.filosofiaLabel')}</span>
             <blockquote className="highlight-section__quote reveal reveal--delay-1">
-              &quot;Se a SIMALIAN conduz o processo completo — do projeto à montagem final — o resultado é <em>inevitavelmente preciso</em>.&quot;
+              &quot;{t('home.filosofiaQuote')}.&quot;
             </blockquote>
             <div className="highlight-section__divider reveal reveal--delay-2" aria-hidden="true"></div>
             <p className="highlight-section__caption reveal reveal--delay-2">
@@ -217,19 +204,19 @@ export default function HomePage() {
             <div className="stats-bar">
               <div className="stat-item reveal">
                 <div className="stat-item__number" data-count="500">0</div>
-                <div className="stat-item__label">Projetos Concluídos</div>
+                <div className="stat-item__label">{t('home.statsProjetos')}</div>
               </div>
               <div className="stat-item reveal reveal--delay-1">
                 <div className="stat-item__number" data-count="15">0</div>
-                <div className="stat-item__label">Anos de Experiência</div>
+                <div className="stat-item__label">{t('home.statsAnos')}</div>
               </div>
               <div className="stat-item reveal reveal--delay-2">
                 <div className="stat-item__number" data-count="98">0</div>
-                <div className="stat-item__label">% Clientes Satisfeitos</div>
+                <div className="stat-item__label">{t('home.statsClientes')}</div>
               </div>
               <div className="stat-item reveal reveal--delay-3">
                 <div className="stat-item__number" data-count="50">0</div>
-                <div className="stat-item__label">Profissionais Especializados</div>
+                <div className="stat-item__label">{t('home.statsProfissionais')}</div>
               </div>
             </div>
           </div>
@@ -238,37 +225,33 @@ export default function HomePage() {
         <section className="section" id="clientes" aria-labelledby="clients-heading">
           <div className="container">
             <div className="section-header section-header--center">
-              <span className="section-label">Quem Servimos</span>
-              <h2 id="clients-heading">Soluções para <em className="em--primary">qualquer escala</em></h2>
-              <p>Desde grandes complexos industriais até projetos menores — a mesma precisão, o mesmo rigor técnico, a mesma dedicação.</p>
+              <span className="section-label">{t('home.quemServimos')}</span>
+              <h2 id="clients-heading">{t('home.quemTitle')}</h2>
+              <p>{t('home.quemIntro')}</p>
             </div>
             <div className="segment-grid">
               <div className="segment-card reveal">
                 <div className="segment-card__icon"><i className="fa-solid fa-building" aria-hidden="true"></i></div>
-                <h3 className="segment-card__title">Grandes Indústrias &amp; Construtoras</h3>
-                <p className="segment-card__desc">
-                  Parceiro técnico para projetos de alta complexidade. Assumimos o ciclo completo — engenharia, fabricação, montagem e manutenção — com equipas dedicadas, garantindo prazos e qualidade documentada.
-                </p>
+                <h3 className="segment-card__title">{t('home.grandesIndustrias')}</h3>
+                <p className="segment-card__desc">{t('home.grandesDesc')}</p>
                 <ul className="segment-card__list">
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> Estruturas metálicas de grande porte</li>
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> Montagem industrial com equipa própria</li>
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> Dossiês técnicos e certificações</li>
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> Manutenção programada e preventiva</li>
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> Gestão de projeto integrada</li>
+                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listEstruturas')}</li>
+                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listMontagem')}</li>
+                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listDossies')}</li>
+                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listManutencao')}</li>
+                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listGestao')}</li>
                 </ul>
               </div>
               <div className="segment-card reveal reveal--delay-2">
                 <div className="segment-card__icon"><i className="fa-solid fa-store" aria-hidden="true"></i></div>
-                <h3 className="segment-card__title">Empresas que Não Podem Errar</h3>
-                <p className="segment-card__desc">
-                  Projetos menores merecem a mesma excelência. A SIMALIAN oferece atendimento dedicado a empresas médias e pequenas que precisam de soluções profissionais, sem complicações e com acompanhamento completo.
-                </p>
+                <h3 className="segment-card__title">{t('home.empresasNaoErrar')}</h3>
+                <p className="segment-card__desc">{t('home.empresasDesc')}</p>
                 <ul className="segment-card__list">
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> Peças sob medida e estruturas personalizadas</li>
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> Escadas, guarda-corpos e mezaninos</li>
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> Orçamentos claros e transparentes</li>
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> Prazos compatíveis com a sua operação</li>
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> Qualidade industrial acessível</li>
+                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listPecas')}</li>
+                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listEscadas')}</li>
+                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listOrcamentos')}</li>
+                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listPrazos')}</li>
+                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listQualidade')}</li>
                 </ul>
               </div>
             </div>
@@ -278,9 +261,9 @@ export default function HomePage() {
         <section className="section section--soft" id="portfolio" aria-labelledby="portfolio-heading">
           <div className="container">
             <div className="section-header section-header--center">
-              <span className="section-label">Portfólio</span>
-              <h2 id="portfolio-heading">Projetos que demonstram <em className="em--primary">a nossa capacidade</em></h2>
-              <p>Cada projeto é uma prova da nossa engenharia e execução. Do aço bruto à estrutura instalada — resultados que falam por si.</p>
+              <span className="section-label">{t('home.portfolioLabel')}</span>
+              <h2 id="portfolio-heading">{t('home.portfolioTitle')}</h2>
+              <p>{t('home.portfolioIntro')}</p>
             </div>
             <div className="portfolio-grid">
               <div className="portfolio-card reveal" tabIndex="0" role="figure" aria-label="Estruturas metálicas industriais de grande porte">
@@ -334,7 +317,7 @@ export default function HomePage() {
             </div>
             <div className="text-center-mt">
               <Link to="/siderurgica" className="btn btn--outline">
-                Ver Todos os Serviços
+                {t('home.verTodosServicos')}
                 <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
               </Link>
             </div>
@@ -343,11 +326,11 @@ export default function HomePage() {
 
         <section className="cta-banner" aria-labelledby="cta-heading">
           <div className="container">
-            <h2 id="cta-heading" className="reveal">Pronto para um resultado <em className="em--secondary">preciso</em>?</h2>
-            <p className="reveal reveal--delay-1">Contacte a SIMALIAN para discutir o seu projeto. Atendemos grandes indústrias e empresas de menor dimensão com o mesmo rigor técnico.</p>
+            <h2 id="cta-heading" className="reveal">{t('home.ctaTitle')}</h2>
+            <p className="reveal reveal--delay-1">{t('home.ctaIntro')}</p>
             <Link to="/contato" className="btn btn--primary btn--orcamento btn--lg reveal reveal--delay-2">
               <i className="fa-solid fa-paper-plane" aria-hidden="true"></i>
-              Solicitar Orçamento
+              {t('home.solicitarOrcamento')}
             </Link>
           </div>
         </section>

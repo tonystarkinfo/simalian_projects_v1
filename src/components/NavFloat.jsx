@@ -1,17 +1,15 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const NAV_SERVICES = [
-  { to: '/siderurgica', label: 'Siderúrgica', icon: 'fa-industry' },
-  { to: '/construccion', label: 'Construcción', icon: 'fa-hard-hat' },
-  { to: '/mantenimiento', label: 'Mantenimiento', icon: 'fa-wrench' },
+  { to: '/siderurgica', key: 'siderurgica', icon: 'fa-industry' },
+  { to: '/construccion', key: 'construccion', icon: 'fa-hard-hat' },
+  { to: '/mantenimiento', key: 'mantenimiento', icon: 'fa-wrench' },
 ];
 
-/**
- * NavFloat — navbar fixa com Home, Siderúrgica, Construcción, Mantenimiento, Engenharia, Contato.
- * Sem dropdown; os três serviços são itens fixos.
- */
 export default function NavFloat() {
   const location = useLocation();
+  const { t } = useLanguage();
   const path = location.pathname;
 
   const linkClass = (to) => {
@@ -27,12 +25,12 @@ export default function NavFloat() {
   };
 
   return (
-    <nav className="nav-float" role="navigation" aria-label="Navegação principal">
+    <nav className="nav-float" role="navigation" aria-label={t('nav.ariaNav')}>
       <div className="nav-float__inner">
         <Link
           to="/#hero"
           className="nav-float__logo"
-          aria-label="Ir para imagem principal — Hero"
+          aria-label={t('nav.ariaHero')}
           onClick={(e) => {
             if (path === '/' || path === '') {
               e.preventDefault();
@@ -44,21 +42,17 @@ export default function NavFloat() {
         </Link>
         <Link to="/" className={linkClass('/')} aria-current={ariaCurrent('/') ? 'page' : undefined}>
           <i className="fa-solid fa-house" aria-hidden="true"></i>
-          <span>{path === '/' || path === '' ? 'Principal' : 'Home'}</span>
+          <span>{path === '/' || path === '' ? t('nav.principal') : t('nav.home')}</span>
         </Link>
-        {NAV_SERVICES.map(({ to, label, icon }) => (
+        {NAV_SERVICES.map(({ to, key, icon }) => (
           <Link key={to} to={to} className={linkClass(to)} aria-current={ariaCurrent(to) ? 'page' : undefined}>
             <i className={`fa-solid ${icon}`} aria-hidden="true"></i>
-            <span>{label}</span>
+            <span>{t(`nav.${key}`)}</span>
           </Link>
         ))}
-        <Link to="/engenharia" className={linkClass('/engenharia')} aria-current={ariaCurrent('/engenharia') ? 'page' : undefined}>
-          <i className="fa-solid fa-compass-drafting" aria-hidden="true"></i>
-          <span>Engenharia</span>
-        </Link>
         <Link to="/contato" className={linkClass('/contato')} aria-current={ariaCurrent('/contato') ? 'page' : undefined}>
           <i className="fa-solid fa-envelope" aria-hidden="true"></i>
-          <span>Contato</span>
+          <span>{t('nav.contato')}</span>
         </Link>
       </div>
     </nav>

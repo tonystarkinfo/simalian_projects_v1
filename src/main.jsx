@@ -10,9 +10,14 @@ if (typeof history !== 'undefined' && 'scrollRestoration' in history) {
 }
 window.scrollTo(0, 0);
 
+const routerFutureFlags = {
+  v7_startTransition: true,
+  v7_relativeSplatPath: true,
+};
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter future={routerFutureFlags}>
       <App />
     </BrowserRouter>
   </React.StrictMode>

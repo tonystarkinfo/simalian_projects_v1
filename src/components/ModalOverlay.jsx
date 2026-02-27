@@ -1,12 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 
-/**
- * ModalOverlay — same structure and behavior as original modals.
- * isActive controls visibility; onClose for overlay/close/escape.
- * Body scroll lock applied when isActive (same as openModal/closeModal).
- */
-export default function ModalOverlay({ id, titleId, title, isActive, onClose, children, footerLinkText = 'Solicitar Orçamento' }) {
+export default function ModalOverlay({ id, titleId, title, isActive, onClose, children, footerLinkText }) {
+  const { t } = useLanguage();
+  const linkText = footerLinkText ?? t('modal.solicitarOrcamento');
   const modalRef = useRef(null);
   const savedScrollY = useRef(0);
 
@@ -66,13 +64,13 @@ export default function ModalOverlay({ id, titleId, title, isActive, onClose, ch
       <div className="modal" ref={modalRef} onClick={(e) => e.stopPropagation()}>
         <div className="modal__header">
           <h3 className="modal__title" id={titleId}>{title}</h3>
-          <button type="button" className="modal__close" aria-label="Fechar" onClick={onClose}><i className="fa-solid fa-xmark"></i></button>
+          <button type="button" className="modal__close" aria-label={t('modal.fechar')} onClick={onClose}><i className="fa-solid fa-xmark"></i></button>
         </div>
         <div className="modal__body">
           {children}
         </div>
         <div className="modal__footer">
-          <Link to="/contato" className="btn btn--primary btn--orcamento btn--sm" onClick={onClose}>{footerLinkText}</Link>
+          <Link to="/contato" className="btn btn--primary btn--orcamento btn--sm" onClick={onClose}>{linkText}</Link>
         </div>
       </div>
     </div>

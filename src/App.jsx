@@ -1,14 +1,15 @@
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { LanguageProvider } from './contexts/LanguageContext';
 import NavFloat from './components/NavFloat';
 import Footer from './components/Footer';
 import CookieBanner from './components/CookieBanner';
+import LanguageSelector from './components/LanguageSelector';
 import HomePage from './pages/HomePage';
 import ServicosPage from './pages/ServicosPage';
 import ServicoSiderurgica from './pages/ServicoSiderurgica';
 import ServicoObra from './pages/ServicoObra';
 import ServicoMantenimiento from './pages/ServicoMantenimiento';
-import EngenhariaPage from './pages/EngenhariaPage';
 import ContatoPage from './pages/ContatoPage';
 import {
   initScrollReveal,
@@ -68,15 +69,20 @@ function AppContent() {
         <Route path="/servicos/siderurgica" element={<Navigate to="/siderurgica" replace />} />
         <Route path="/servicos/obra-construccion" element={<Navigate to="/construccion" replace />} />
         <Route path="/servicos/mantenimiento-reparaciones" element={<Navigate to="/mantenimiento" replace />} />
-        <Route path="/engenharia" element={<EngenhariaPage />} />
+        <Route path="/engenharia" element={<Navigate to="/" replace />} />
         <Route path="/contato" element={<ContatoPage />} />
       </Routes>
       <Footer />
       <CookieBanner />
+      <LanguageSelector />
     </>
   );
 }
 
 export default function App() {
-  return <AppContent />;
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
+  );
 }

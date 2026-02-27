@@ -1,6 +1,5 @@
 /**
- * SIMALIAN PROJECTS — Configuration
- * Same logic as original config.js
+ * Configuration — reduced motion, reduced data, touch device.
  */
 
 export const CONFIG = {

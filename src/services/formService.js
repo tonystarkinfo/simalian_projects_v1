@@ -1,6 +1,5 @@
 /**
- * SIMALIAN PROJECTS — Form submission
- * Same logic as original submitFormData
+ * Form submission — POST to contact_submissions.
  */
 
 export async function submitFormData(data) {

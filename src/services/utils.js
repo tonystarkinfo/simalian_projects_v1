@@ -1,6 +1,5 @@
 /**
- * SIMALIAN PROJECTS — Utility functions
- * Same logic as original utils.js
+ * Utility functions — sanitize for form output.
  */
 
 export function sanitize(str) {

@@ -1,6 +1,6 @@
 /**
- * SIMALIAN PROJECTS — Init effects (same logic as original JS modules)
- * Called from useEffect after mount.
+ * Init effects — scroll reveal, counters, smooth scroll, modal gallery, tech nav.
+ * Called from App useEffect after route change.
  */
 
 import { CONFIG } from './config.js';
@@ -105,66 +105,6 @@ export function initModalGallery() {
   };
   document.addEventListener('click', handler);
   return () => document.removeEventListener('click', handler);
-}
-
-export function initVideoFallback() {
-  const video = document.querySelector('.hero__video');
-  const fallback = document.querySelector('.hero__video-fallback');
-  if (!video || !fallback) return () => {};
-  if (CONFIG.reducedData || CONFIG.reducedMotion) {
-    video.style.display = 'none';
-    fallback.style.display = 'block';
-    return () => {};
-  }
-  const onError = () => { video.style.display = 'none'; fallback.style.display = 'block'; };
-  const onCanplay = () => { video.style.display = 'block'; fallback.style.display = 'none'; };
-  video.addEventListener('error', onError);
-  video.addEventListener('canplay', onCanplay);
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          video.play().catch(() => { video.style.display = 'none'; fallback.style.display = 'block'; });
-        } else video.pause();
-      });
-    },
-    { threshold: 0.1 }
-  );
-  observer.observe(video);
-  return () => {
-    video.removeEventListener('error', onError);
-    video.removeEventListener('canplay', onCanplay);
-    observer.disconnect();
-  };
-}
-
-export function initCinematicScroll() {
-  const hero = document.querySelector('.hero');
-  const videoWrap = document.querySelector('.hero__video-wrap');
-  const content = document.querySelector('.hero__content');
-  if (!hero || !videoWrap || !content || CONFIG.reducedMotion) return () => {};
-  let ticking = false;
-  function updateScroll() {
-    const scrollY = window.scrollY;
-    const heroHeight = hero.offsetHeight;
-    if (scrollY < heroHeight) {
-      const progress = scrollY / heroHeight;
-      const scale = 1 + progress * 0.15;
-      const opacity = 1 - progress * 0.8;
-      videoWrap.style.transform = `scale(${scale})`;
-      content.style.transform = `translateY(${scrollY * 0.3}px)`;
-      content.style.opacity = opacity;
-    }
-    ticking = false;
-  }
-  const onScroll = () => {
-    if (!ticking) {
-      requestAnimationFrame(updateScroll);
-      ticking = true;
-    }
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  return () => window.removeEventListener('scroll', onScroll);
 }
 
 export function initTechNav() {

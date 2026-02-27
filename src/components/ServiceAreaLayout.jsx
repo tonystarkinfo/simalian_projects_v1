@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 import ModalOverlay from './ModalOverlay';
 
-/**
- * Layout reutilizável para páginas de área de serviço (Siderúrgica, Construcción, Mantenimiento).
- * Cards clicáveis abrem modal com descrição e listas, igual à página Serviços.
- */
 export default function ServiceAreaLayout({ sectionLabel, title, subtitle, cards }) {
+  const { t } = useLanguage();
   const [activeModalId, setActiveModalId] = useState(null);
   const [galleryMain, setGalleryMain] = useState(() => {
     const initial = {};
@@ -82,7 +80,7 @@ export default function ServiceAreaLayout({ sectionLabel, title, subtitle, cards
                     <h3 className="service-card__title">{card.title}</h3>
                     <p className="service-card__desc">{card.desc}</p>
                     <span className="service-card__cta">
-                      Ver detalhes <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                      {t('serviceArea.verDetalhes')} <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
                     </span>
                   </div>
                 </div>
@@ -93,11 +91,11 @@ export default function ServiceAreaLayout({ sectionLabel, title, subtitle, cards
 
         <section className="cta-banner" aria-labelledby="cta-area">
           <div className="container">
-            <h2 id="cta-area" className="reveal">Precisa de um serviço <em className="em--secondary">específico</em>?</h2>
-            <p className="reveal reveal--delay-1">Descreva o seu projeto e receba uma proposta detalhada. A SIMALIAN adapta-se à sua necessidade, independentemente da escala.</p>
+            <h2 id="cta-area" className="reveal">{t('serviceArea.ctaTitle')}</h2>
+            <p className="reveal reveal--delay-1">{t('serviceArea.ctaSubtitle')}</p>
             <Link to="/contato" className="btn btn--primary btn--orcamento btn--lg reveal reveal--delay-2">
               <i className="fa-solid fa-paper-plane" aria-hidden="true"></i>
-              Solicitar Orçamento
+              {t('modal.solicitarOrcamento')}
             </Link>
           </div>
         </section>

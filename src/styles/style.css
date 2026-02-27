@@ -630,36 +630,6 @@ p {
   object-fit: contain;
 }
 
-/* Serviços expandível: 3 links inline (não dropdown) */
-.nav-float__services-extra {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
-  overflow: hidden;
-  max-width: 0;
-  opacity: 0;
-  transition: max-width 0.28s ease, opacity 0.25s ease;
-}
-.nav-float__inner--services-expanded .nav-float__services-extra {
-  max-width: 720px;
-  opacity: 1;
-}
-.nav-float__services-extra .nav-float__link {
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-/* Barra scrollável quando expandida para não cortar o último item */
-.nav-float__inner--services-expanded {
-  max-width: min(96vw, 1400px);
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-}
-.nav-float__inner--services-expanded .nav-float__link,
-.nav-float__inner--services-expanded .nav-float__services-extra {
-  flex-shrink: 0;
-}
-
 /* Mobile nav */
 @media (max-width: 768px) {
   .nav-float {
@@ -703,21 +673,83 @@ p {
   .nav-float__link span {
     display: block;
   }
+}
 
-  .nav-float__inner--services-expanded {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    justify-content: flex-start;
-    padding-left: var(--space-md);
-    padding-right: var(--space-md);
+/* Language selector — fixo canto superior esquerdo, bandeiras */
+.language-selector {
+  position: fixed;
+  left: var(--space-xl);
+  top: var(--space-xl);
+  padding-top: var(--safe-top, var(--space-md));
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 450;
+  background: var(--color-tertiary);
+  padding: 6px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-float);
+  border: 1px solid var(--color-border-light);
+}
+
+.language-selector__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.language-selector__btn:hover {
+  background: var(--color-border-light);
+}
+
+.language-selector__btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.language-selector__btn--active {
+  background: var(--color-border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.language-selector__flag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.language-selector__flag-svg {
+  width: 22px;
+  height: auto;
+  aspect-ratio: 20 / 14;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .language-selector {
+    left: var(--space-md);
+    top: var(--space-md);
+    padding: 4px;
+    padding-top: max(var(--safe-top, 0), var(--space-sm));
   }
-  .nav-float__inner--services-expanded .nav-float__services-extra {
-    max-width: none;
+
+  .language-selector__btn {
+    width: 28px;
+    height: 28px;
   }
-  .nav-float__services-extra .nav-float__link {
-    padding: 8px 10px;
-    font-size: 0.6rem;
-    min-width: 56px;
+
+  .language-selector__flag-svg {
+    width: 18px;
   }
 }
 
@@ -2246,13 +2278,15 @@ p {
 
 .form-input:hover,
 .form-textarea:hover,
-.form-select:hover {
+.form-select:hover,
+.form-file:hover {
   border-color: var(--color-primary);
 }
 
 .form-input:focus,
 .form-textarea:focus,
-.form-select:focus {
+.form-select:focus,
+.form-file:focus {
   outline: none;
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(0, 108, 147, 0.12);
@@ -2260,7 +2294,8 @@ p {
 
 .form-input.error,
 .form-textarea.error,
-.form-select.error {
+.form-select.error,
+.form-file.error {
   border-color: #E53935;
   box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.12);
 }
@@ -2268,6 +2303,29 @@ p {
 .form-textarea {
   resize: vertical;
   min-height: 140px;
+}
+
+.form-file {
+  cursor: pointer;
+}
+
+.form-file::-webkit-file-upload-button {
+  padding: 8px 14px;
+  margin-right: 12px;
+  font-family: var(--font-primary);
+  font-size: var(--fs-small);
+  color: var(--color-text);
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.form-hint {
+  display: block;
+  font-size: var(--fs-caption);
+  color: var(--color-text-light);
+  margin-top: var(--space-xs);
 }
 
 .form-select {

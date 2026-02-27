@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
-/**
- * CookieBanner — same behavior as original initCookieConsent.
- * Shows after 2s if no consent in localStorage; Accept/Decline hide and store.
- */
 export default function CookieBanner() {
+  const { t } = useLanguage();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -28,10 +26,10 @@ export default function CookieBanner() {
 
   return (
     <div className="cookie-banner is-visible" id="cookieBanner" role="dialog" aria-label="Consentimento de cookies">
-      <p>Utilizamos cookies para melhorar a sua experiência. Ao continuar a navegar, concorda com a nossa <a href="#privacidade" className="link--secondary">Política de Privacidade</a>.</p>
+      <p>{t('cookie.prefix')}<a href="#privacidade" className="link--secondary">{t('footer.privacidade')}</a>{t('cookie.suffix')}</p>
       <div className="cookie-banner__actions">
-        <button type="button" className="btn btn--primary btn--sm" id="cookieAccept" onClick={handleAccept}>Aceitar</button>
-        <button type="button" className="btn btn--secondary btn--sm btn--secondary-muted" id="cookieDecline" onClick={handleDecline}>Recusar</button>
+        <button type="button" className="btn btn--primary btn--sm" id="cookieAccept" onClick={handleAccept}>{t('cookie.aceitar')}</button>
+        <button type="button" className="btn btn--secondary btn--sm btn--secondary-muted" id="cookieDecline" onClick={handleDecline}>{t('cookie.recusar')}</button>
       </div>
     </div>
   );
