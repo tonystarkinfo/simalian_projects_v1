@@ -5,9 +5,9 @@ import { submitFormData } from '../services/formService';
 import { sanitize } from '../services/utils';
 
 const HOME_HERO_SERVICES = [
-  { to: '/siderurgica', key: 'siderurgica', icon: 'fa-industry', image: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200&q=80' },
-  { to: '/construccion', key: 'construccion', icon: 'fa-hard-hat', image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80' },
-  { to: '/mantenimiento', key: 'mantenimiento', icon: 'fa-wrench', image: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1200&q=80' },
+  { to: '/siderurgica', key: 'siderurgica', icon: 'fa-industry', image: '/assets/img/servicos/foto1.png' },
+  { to: '/construccion', key: 'construccion', icon: 'fa-hard-hat', image: '/assets/img/servicos/foto2.png' },
+  { to: '/mantenimiento', key: 'mantenimiento', icon: 'fa-wrench', image: '/assets/img/servicos/Foto3.png' },
 ];
 
 export default function HomePage() {
@@ -186,141 +186,16 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="section section--primary highlight-section" aria-labelledby="highlight-heading">
+        <section className="section section--soft highlight-section" aria-labelledby="highlight-heading">
           <div className="container">
-            <span className="section-label section-label--light reveal" id="highlight-heading">{t('home.filosofiaLabel')}</span>
+            <span className="section-label reveal" id="highlight-heading">{t('home.filosofiaLabel')}</span>
             <blockquote className="highlight-section__quote reveal reveal--delay-1">
               &quot;{t('home.filosofiaQuote')}.&quot;
             </blockquote>
             <div className="highlight-section__divider reveal reveal--delay-2" aria-hidden="true"></div>
             <p className="highlight-section__caption reveal reveal--delay-2">
-              Resultados superiores são alcançados quando uma única entidade controla engenharia, fabricação, montagem e manutenção. Sem interfaces desnecessárias. Sem perda de informação entre equipas.
+              {t('home.filosofiaCaption')}
             </p>
-          </div>
-        </section>
-
-        <section className="section section--soft" aria-label="Números da empresa">
-          <div className="container">
-            <div className="stats-bar">
-              <div className="stat-item reveal">
-                <div className="stat-item__number" data-count="500">0</div>
-                <div className="stat-item__label">{t('home.statsProjetos')}</div>
-              </div>
-              <div className="stat-item reveal reveal--delay-1">
-                <div className="stat-item__number" data-count="15">0</div>
-                <div className="stat-item__label">{t('home.statsAnos')}</div>
-              </div>
-              <div className="stat-item reveal reveal--delay-2">
-                <div className="stat-item__number" data-count="98">0</div>
-                <div className="stat-item__label">{t('home.statsClientes')}</div>
-              </div>
-              <div className="stat-item reveal reveal--delay-3">
-                <div className="stat-item__number" data-count="50">0</div>
-                <div className="stat-item__label">{t('home.statsProfissionais')}</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section" id="clientes" aria-labelledby="clients-heading">
-          <div className="container">
-            <div className="section-header section-header--center">
-              <span className="section-label">{t('home.quemServimos')}</span>
-              <h2 id="clients-heading">{t('home.quemTitle')}</h2>
-              <p>{t('home.quemIntro')}</p>
-            </div>
-            <div className="segment-grid">
-              <div className="segment-card reveal">
-                <div className="segment-card__icon"><i className="fa-solid fa-building" aria-hidden="true"></i></div>
-                <h3 className="segment-card__title">{t('home.grandesIndustrias')}</h3>
-                <p className="segment-card__desc">{t('home.grandesDesc')}</p>
-                <ul className="segment-card__list">
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listEstruturas')}</li>
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listMontagem')}</li>
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listDossies')}</li>
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listManutencao')}</li>
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listGestao')}</li>
-                </ul>
-              </div>
-              <div className="segment-card reveal reveal--delay-2">
-                <div className="segment-card__icon"><i className="fa-solid fa-store" aria-hidden="true"></i></div>
-                <h3 className="segment-card__title">{t('home.empresasNaoErrar')}</h3>
-                <p className="segment-card__desc">{t('home.empresasDesc')}</p>
-                <ul className="segment-card__list">
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listPecas')}</li>
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listEscadas')}</li>
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listOrcamentos')}</li>
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listPrazos')}</li>
-                  <li><i className="fa-solid fa-check" aria-hidden="true"></i> {t('home.listQualidade')}</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section section--soft" id="portfolio" aria-labelledby="portfolio-heading">
-          <div className="container">
-            <div className="section-header section-header--center">
-              <span className="section-label">{t('home.portfolioLabel')}</span>
-              <h2 id="portfolio-heading">{t('home.portfolioTitle')}</h2>
-              <p>{t('home.portfolioIntro')}</p>
-            </div>
-            <div className="portfolio-grid">
-              <div className="portfolio-card reveal" tabIndex="0" role="figure" aria-label="Estruturas metálicas industriais de grande porte">
-                <img className="portfolio-card__img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Construção de estrutura metálica industrial de grande porte" loading="lazy" />
-                <div className="portfolio-card__overlay">
-                  <span className="portfolio-card__category">Estruturas</span>
-                  <h3 className="portfolio-card__title">Complexo Industrial</h3>
-                  <p className="portfolio-card__desc">Estrutura metálica de 2.500 m² — projeto, fabricação e montagem</p>
-                </div>
-              </div>
-              <div className="portfolio-card reveal reveal--delay-1" tabIndex="0" role="figure" aria-label="Plataformas e mezaninos metálicos">
-                <img className="portfolio-card__img" src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80" alt="Plataformas industriais em aço com acabamento profissional" loading="lazy" />
-                <div className="portfolio-card__overlay">
-                  <span className="portfolio-card__category">Plataformas</span>
-                  <h3 className="portfolio-card__title">Mezaninos Industriais</h3>
-                  <p className="portfolio-card__desc">Plataformas modulares em aço com acabamento industrial</p>
-                </div>
-              </div>
-              <div className="portfolio-card reveal reveal--delay-2" tabIndex="0" role="figure" aria-label="Fabricação e soldadura CNC">
-                <img className="portfolio-card__img" src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&q=80" alt="Soldadura MIG/MAG em ambiente de fabricação industrial" loading="lazy" />
-                <div className="portfolio-card__overlay">
-                  <span className="portfolio-card__category">Fabricação</span>
-                  <h3 className="portfolio-card__title">Soldadura Especializada</h3>
-                  <p className="portfolio-card__desc">Processos MIG/MAG/TIG com controlo de qualidade certificado</p>
-                </div>
-              </div>
-              <div className="portfolio-card reveal reveal--delay-1" tabIndex="0" role="figure" aria-label="Montagem de estruturas no local">
-                <img className="portfolio-card__img" src="https://images.unsplash.com/photo-1590846083693-f23fdede3a7e?w=800&q=80" alt="Montagem de estrutura metálica em obra com equipa especializada" loading="lazy" />
-                <div className="portfolio-card__overlay">
-                  <span className="portfolio-card__category">Montagem</span>
-                  <h3 className="portfolio-card__title">Montagem In Situ</h3>
-                  <p className="portfolio-card__desc">Equipa própria de montadores com certificação de segurança</p>
-                </div>
-              </div>
-              <div className="portfolio-card reveal reveal--delay-2" tabIndex="0" role="figure" aria-label="Tanques e reservatórios metálicos">
-                <img className="portfolio-card__img" src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&q=80" alt="Tanques metálicos industriais de grande capacidade" loading="lazy" />
-                <div className="portfolio-card__overlay">
-                  <span className="portfolio-card__category">Tanques</span>
-                  <h3 className="portfolio-card__title">Reservatórios Industriais</h3>
-                  <p className="portfolio-card__desc">Tanques em aço carbono e inox com certificação de estanquidade</p>
-                </div>
-              </div>
-              <div className="portfolio-card reveal reveal--delay-3" tabIndex="0" role="figure" aria-label="Manutenção e reforço estrutural">
-                <img className="portfolio-card__img" src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&q=80" alt="Trabalho de manutenção e reforço de estruturas existentes" loading="lazy" />
-                <div className="portfolio-card__overlay">
-                  <span className="portfolio-card__category">Manutenção</span>
-                  <h3 className="portfolio-card__title">Reforço Estrutural</h3>
-                  <p className="portfolio-card__desc">Inspeção, diagnóstico e reforço de infraestrutura industrial</p>
-                </div>
-              </div>
-            </div>
-            <div className="text-center-mt">
-              <Link to="/siderurgica" className="btn btn--outline">
-                {t('home.verTodosServicos')}
-                <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </Link>
-            </div>
           </div>
         </section>
 

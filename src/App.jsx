@@ -1,10 +1,11 @@
-import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate, Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import { LanguageProvider } from './contexts/LanguageContext';
+import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 import NavFloat from './components/NavFloat';
 import Footer from './components/Footer';
 import CookieBanner from './components/CookieBanner';
 import LanguageSelector from './components/LanguageSelector';
+import WhatsAppFloat from './components/WhatsAppFloat';
 import HomePage from './pages/HomePage';
 import ServicosPage from './pages/ServicosPage';
 import ServicoSiderurgica from './pages/ServicoSiderurgica';
@@ -21,18 +22,19 @@ import {
 
 function AppContent() {
   const location = useLocation();
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (location.hash === '#hero') {
-      const t = setTimeout(() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' }), 150);
-      return () => clearTimeout(t);
+      const timeoutId = setTimeout(() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' }), 150);
+      return () => clearTimeout(timeoutId);
     }
     window.scrollTo(0, 0);
   }, [location.pathname, location.hash]);
 
   useEffect(() => {
     const cleanups = [];
-    const t = setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       initScrollReveal();
       initCounters();
       const c1 = initSmoothScroll();
@@ -41,7 +43,7 @@ function AppContent() {
       if (c2) cleanups.push(c2);
     }, 0);
     return () => {
-      clearTimeout(t);
+      clearTimeout(timeoutId);
       cleanups.forEach((fn) => fn && fn());
     };
   }, [location.pathname]);
@@ -74,7 +76,14 @@ function AppContent() {
       </Routes>
       <Footer />
       <CookieBanner />
-      <LanguageSelector />
+      <WhatsAppFloat />
+      <div className="header-utils">
+        <LanguageSelector />
+        <Link to="/contato" className="btn-contact-top" aria-label={t('nav.contato')}>
+          <i className="fa-solid fa-envelope" aria-hidden="true"></i>
+          <span>{t('nav.contato')}</span>
+        </Link>
+      </div>
     </>
   );
 }

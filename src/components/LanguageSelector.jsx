@@ -1,11 +1,11 @@
 import { useLanguage } from '../contexts/LanguageContext';
 
-/* Bandeiras em SVG: ES, FR, EN, CA */
+/* Bandeiras em SVG: ES, FR, EN, CA — Espanha: proporção oficial 1:2:1, cores oficiais */
 const FLAG_ES = (
   <svg className="language-selector__flag-svg" viewBox="0 0 20 14" aria-hidden="true">
-    <rect width="20" height="14" fill="#c60b1e" />
-    <rect y="3" width="20" height="8" fill="#ffc400" />
-    <rect y="5" width="20" height="4" fill="#c60b1e" />
+    <rect y="0" width="20" height="3.5" fill="#AA151B" />
+    <rect y="3.5" width="20" height="7" fill="#F1BF00" />
+    <rect y="10.5" width="20" height="3.5" fill="#AA151B" />
   </svg>
 );
 const FLAG_FR = (
@@ -41,13 +41,14 @@ const FLAG_EN = (
     <circle cx="5.8" cy="6.1" r="0.45" fill="#fff" />
   </svg>
 );
+/* Senyera: 9 faixas iguais (amarelo, vermelho x4 alternados), cores oficiais */
 const FLAG_CA = (
   <svg className="language-selector__flag-svg" viewBox="0 0 20 14" aria-hidden="true">
-    <rect width="20" height="14" fill="#fcdd09" />
-    <rect y="2.8" width="20" height="2.8" fill="#da121a" />
-    <rect y="5.6" width="20" height="2.8" fill="#da121a" />
-    <rect y="8.4" width="20" height="2.8" fill="#da121a" />
-    <rect y="11.2" width="20" height="2.8" fill="#da121a" />
+    <rect width="20" height="14" fill="#FCDD09" />
+    <rect y="1.556" width="20" height="1.556" fill="#DA121A" />
+    <rect y="4.667" width="20" height="1.556" fill="#DA121A" />
+    <rect y="7.778" width="20" height="1.556" fill="#DA121A" />
+    <rect y="10.889" width="20" height="1.556" fill="#DA121A" />
   </svg>
 );
 

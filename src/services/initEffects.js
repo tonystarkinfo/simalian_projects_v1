@@ -1,5 +1,5 @@
 /**
- * Init effects — scroll reveal, counters, smooth scroll, modal gallery, tech nav.
+ * Init effects — scroll reveal, counters, smooth scroll, modal gallery.
  * Called from App useEffect after route change.
  */
 
@@ -105,40 +105,6 @@ export function initModalGallery() {
   };
   document.addEventListener('click', handler);
   return () => document.removeEventListener('click', handler);
-}
-
-export function initTechNav() {
-  const techLinks = document.querySelectorAll('.tech-nav__link');
-  if (!techLinks.length) return () => {};
-  const sections = [];
-  techLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href && href.startsWith('#')) {
-      const section = document.getElementById(href.substring(1));
-      if (section) sections.push({ link, section });
-    }
-  });
-  if (!sections.length) return () => {};
-  techLinks.forEach(l => l.classList.remove('tech-nav__link--active'));
-  let initialPass = true;
-  const observer = new IntersectionObserver(
-    (entries) => {
-      if (initialPass) {
-        initialPass = false;
-        return;
-      }
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          techLinks.forEach(l => l.classList.remove('tech-nav__link--active'));
-          const match = sections.find(s => s.section === entry.target);
-          if (match) match.link.classList.add('tech-nav__link--active');
-        }
-      });
-    },
-    { threshold: 0.2, rootMargin: '-100px 0px -60% 0px' }
-  );
-  sections.forEach(({ section }) => observer.observe(section));
-  return () => observer.disconnect();
 }
 
 export function initMobileKeyboard() {
