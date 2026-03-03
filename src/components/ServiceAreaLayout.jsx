@@ -46,8 +46,8 @@ export default function ServiceAreaLayout({ sectionLabel, title, subtitle, cards
         </div>
       </header>
 
-      <main>
-        <section className="section" aria-labelledby="area-cards-heading">
+      <main className="page-main page-main--white">
+        <section className="section section--soft" aria-labelledby="area-cards-heading">
           <div className="container">
             <h2 id="area-cards-heading" className="sr-only">Catálogo de serviços</h2>
             <div className="services-grid services-grid--9">

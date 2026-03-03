@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { submitFormData } from '../services/formService';
@@ -14,6 +14,38 @@ export default function HomePage() {
   const { t } = useLanguage();
   const contactFormRef = useRef(null);
   const [contactFeedback, setContactFeedback] = useState(null);
+  const [heroLoaded, setHeroLoaded] = useState(() => {
+    const initial = {};
+    HOME_HERO_SERVICES.forEach((s) => { initial[s.key] = false; });
+    return initial;
+  });
+
+  useEffect(() => {
+    let cancelled = false;
+    const imgs = HOME_HERO_SERVICES.map(({ key, image }, idx) => {
+      const img = new Image();
+      img.decoding = 'async';
+      if (idx === 0) img.fetchPriority = 'high';
+      img.onload = () => {
+        if (cancelled) return;
+        setHeroLoaded((prev) => (prev[key] ? prev : { ...prev, [key]: true }));
+      };
+      img.onerror = () => {
+        if (cancelled) return;
+        setHeroLoaded((prev) => (prev[key] ? prev : { ...prev, [key]: true }));
+      };
+      img.src = image;
+      return img;
+    });
+    return () => {
+      cancelled = true;
+      // Evita manter referências desnecessárias
+      imgs.forEach((img) => {
+        img.onload = null;
+        img.onerror = null;
+      });
+    };
+  }, []);
 
   function handleHomeContactSubmit(e) {
     e.preventDefault();
@@ -51,7 +83,7 @@ export default function HomePage() {
         <h2 id="home-hero-heading" className="sr-only">Serviços — Siderúrgica, Obra e Construcción, Mantenimiento e Reparaciones</h2>
         <div className="home-hero__grid">
           {HOME_HERO_SERVICES.map(({ to, key, icon, image }) => (
-            <div key={to} className="home-hero__column">
+            <div key={to} className={`home-hero__column ${heroLoaded[key] ? 'is-loaded' : 'is-loading'}`}>
               <div className="home-hero__bg" style={{ backgroundImage: `url(${image})` }} aria-hidden="true" />
               <div className="home-hero__overlay" aria-hidden="true" />
               <div className="home-hero__content">
@@ -79,27 +111,27 @@ export default function HomePage() {
             <div className="cycle-grid">
               <div className="cycle-card reveal">
                 <span className="cycle-card__step">{t('home.etapa')} 01</span>
-                <div className="cycle-card__icon"><i className="fa-solid fa-compass-drafting" aria-hidden="true"></i></div>
-                <h3 className="cycle-card__title">{t('home.engProjeto')}</h3>
-                <p className="cycle-card__desc">{t('home.engDesc')}</p>
+                <div className="cycle-card__icon" aria-hidden="true"><i className="fa-solid fa-compass-drafting" aria-hidden="true"></i></div>
+                <h3 className="cycle-card__title">{t('home.cycle01Title')}</h3>
+                <p className="cycle-card__desc">{t('home.cycle01Desc')}</p>
               </div>
               <div className="cycle-card reveal reveal--delay-1">
                 <span className="cycle-card__step">{t('home.etapa')} 02</span>
-                <div className="cycle-card__icon"><i className="fa-solid fa-industry" aria-hidden="true"></i></div>
-                <h3 className="cycle-card__title">{t('home.fabMetalica')}</h3>
-                <p className="cycle-card__desc">{t('home.fabDesc')}</p>
+                <div className="cycle-card__icon" aria-hidden="true"><i className="fa-solid fa-industry" aria-hidden="true"></i></div>
+                <h3 className="cycle-card__title">{t('home.cycle02Title')}</h3>
+                <p className="cycle-card__desc">{t('home.cycle02Desc')}</p>
               </div>
               <div className="cycle-card reveal reveal--delay-2">
                 <span className="cycle-card__step">{t('home.etapa')} 03</span>
-                <div className="cycle-card__icon"><i className="fa-solid fa-helmet-safety" aria-hidden="true"></i></div>
-                <h3 className="cycle-card__title">{t('home.montagemTitle')}</h3>
-                <p className="cycle-card__desc">{t('home.montagemDesc')}</p>
+                <div className="cycle-card__icon" aria-hidden="true"><i className="fa-solid fa-helmet-safety" aria-hidden="true"></i></div>
+                <h3 className="cycle-card__title">{t('home.cycle03Title')}</h3>
+                <p className="cycle-card__desc">{t('home.cycle03Desc')}</p>
               </div>
               <div className="cycle-card reveal reveal--delay-3">
                 <span className="cycle-card__step">{t('home.etapa')} 04</span>
-                <div className="cycle-card__icon"><i className="fa-solid fa-wrench" aria-hidden="true"></i></div>
-                <h3 className="cycle-card__title">{t('home.manutencaoTitle')}</h3>
-                <p className="cycle-card__desc">{t('home.manutencaoDesc')}</p>
+                <div className="cycle-card__icon" aria-hidden="true"><i className="fa-solid fa-wrench" aria-hidden="true"></i></div>
+                <h3 className="cycle-card__title">{t('home.cycle04Title')}</h3>
+                <p className="cycle-card__desc">{t('home.cycle04Desc')}</p>
               </div>
             </div>
           </div>
@@ -129,7 +161,7 @@ export default function HomePage() {
                     </div>
                     <div className="home-contact-form__group">
                       <label htmlFor="home-contact-telefone">{t('home.formTelefone')}</label>
-                      <input type="tel" id="home-contact-telefone" name="telefone" className="home-contact-form__input" placeholder="+351 000 000 000" autoComplete="tel" />
+                      <input type="tel" id="home-contact-telefone" name="telefone" className="home-contact-form__input" placeholder={t('contact.contactPhone')} autoComplete="tel" />
                     </div>
                   </div>
                   <div className="home-contact-form__group">
@@ -157,7 +189,7 @@ export default function HomePage() {
                   <i className="fa-solid fa-phone" aria-hidden="true"></i>
                   <div>
                     <span className="home-contact-institutional__label">{t('home.labelTelefone')}</span>
-                    <a href="tel:+351000000000">+351 000 000 000</a>
+                    <a href={`tel:${t('contact.contactPhone').replace(/\s/g, '')}`}>{t('contact.contactPhone')}</a>
                   </div>
                 </div>
                 <div className="home-contact-institutional__item">
@@ -171,7 +203,7 @@ export default function HomePage() {
                   <i className="fa-solid fa-location-dot" aria-hidden="true"></i>
                   <div>
                     <span className="home-contact-institutional__label">{t('home.labelLocalizacao')}</span>
-                    <span>{t('home.portugal')}</span>
+                    <span>{t('contact.contactAddress')}</span>
                   </div>
                 </div>
                 <div className="home-contact-institutional__item">

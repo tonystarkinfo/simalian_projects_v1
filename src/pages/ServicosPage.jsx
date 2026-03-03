@@ -48,8 +48,8 @@ export default function ServicosPage() {
         </div>
       </header>
 
-      <main>
-        <section className="section" id="fabricacao" aria-labelledby="fab-heading">
+      <main className="page-main page-main--white">
+        <section className="section section--soft" id="fabricacao" aria-labelledby="fab-heading">
           <div className="container">
             <div className="section-header">
               <span className="section-label">{t('servicos.sec01Label')}</span>

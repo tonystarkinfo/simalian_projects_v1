@@ -124,7 +124,7 @@ export default function ContatoPage() {
 
   return (
     <>
-      <header className="page-header">
+      <header className="page-header page-header--light">
         <div className="container page-header__content">
           <span className="section-label section-label--light">{t('contact.label')}</span>
           <h1 className="page-header__title">{t('contact.title')}</h1>
@@ -132,8 +132,8 @@ export default function ContatoPage() {
         </div>
       </header>
 
-      <main>
-        <section className="section" aria-labelledby="form-heading">
+      <main className="page-main page-main--white">
+        <section className="section section--soft" aria-labelledby="form-heading">
           <div className="container">
             <div className="contact-layout">
               <div className="reveal">
@@ -162,7 +162,7 @@ export default function ContatoPage() {
                     </div>
                     <div className="form-group">
                       <label htmlFor="telefone">{t('contact.telefone')}</label>
-                      <input type="tel" id="telefone" name="telefone" className="form-input" placeholder="+351 000 000 000" autoComplete="tel" />
+                      <input type="tel" id="telefone" name="telefone" className="form-input" placeholder={t('contact.contactPhone')} autoComplete="tel" />
                     </div>
                   </div>
                   <div className="form-row">
@@ -236,7 +236,7 @@ export default function ContatoPage() {
                   <div className="contact-info__icon"><i className="fa-solid fa-phone" aria-hidden="true"></i></div>
                   <div>
                     <div className="contact-info__label">{t('home.labelTelefone')}</div>
-                    <div className="contact-info__value"><a href="tel:+351000000000">+351 000 000 000</a></div>
+                    <div className="contact-info__value"><a href={`tel:${t('contact.contactPhone').replace(/\s/g, '')}`}>{t('contact.contactPhone')}</a></div>
                   </div>
                 </div>
                 <div className="contact-info__item">
@@ -250,7 +250,7 @@ export default function ContatoPage() {
                   <div className="contact-info__icon"><i className="fa-solid fa-location-dot" aria-hidden="true"></i></div>
                   <div>
                     <div className="contact-info__label">{t('home.labelLocalizacao')}</div>
-                    <div className="contact-info__value">{t('home.portugal')}</div>
+                    <div className="contact-info__value">{t('contact.contactAddress')}</div>
                   </div>
                 </div>
                 <div className="contact-info__item">

@@ -6,22 +6,22 @@ export default function Footer() {
   return (
     <footer className="footer" role="contentinfo">
       <div className="container">
-        <div className="footer__grid">
-          <div>
-            <Link to="/" className="footer__brand-name">SIMALIAN PROJECTS</Link>
-            <p className="footer__brand-desc">
-              {t('footer.brandDesc')}
-            </p>
+        <div className="footer__main">
+          <div className="footer__brand-col">
+            <Link to="/" className="footer__brand" aria-label="SIMALIAN INDUSTRIAL PROJECTS — Início">
+              <img src="/assets/img/servicos/imagens-logos/Logo_maior.png" alt="SIMALIAN INDUSTRIAL PROJECTS" className="footer__brand-logo" />
+            </Link>
+            <p className="footer__brand-desc">{t('footer.brandDesc')}</p>
           </div>
-          <div>
+          <nav className="footer__nav-col" aria-label={t('footer.nav')}>
             <h4 className="footer__col-title">{t('footer.nav')}</h4>
             <ul className="footer__links">
               <li><Link to="/">{t('footer.home')}</Link></li>
               <li><Link to="/servicos">{t('footer.servicos')}</Link></li>
               <li><Link to="/contato">{t('footer.contacto')}</Link></li>
             </ul>
-          </div>
-          <div>
+          </nav>
+          <nav className="footer__nav-col" aria-label={t('footer.servicos')}>
             <h4 className="footer__col-title">{t('footer.servicos')}</h4>
             <ul className="footer__links">
               <li><Link to="/servicos#fabricacao">{t('footer.fabricacao')}</Link></li>
@@ -30,23 +30,25 @@ export default function Footer() {
               <li><Link to="/servicos#manutencao">{t('footer.manutencao')}</Link></li>
               <li><Link to="/servicos#tratamentos">{t('footer.tratamentos')}</Link></li>
             </ul>
-          </div>
-          <div>
+          </nav>
+          <div className="footer__contact-col">
             <h4 className="footer__col-title">{t('footer.contacto')}</h4>
-            <ul className="footer__links">
-              <li><a href="tel:+351000000000">+351 000 000 000</a></li>
-              <li><a href="mailto:info@simalian.pt">info@simalian.pt</a></li>
-              <li>{t('home.portugal')}</li>
+            <ul className="footer__links footer__contact-list">
+              <li><a href={`tel:${t('contact.contactPhone').replace(/\s/g, '')}`}>{t('contact.contactPhone')}</a></li>
+              <li><a href={`mailto:${t('contact.contactEmail')}`}>{t('contact.contactEmail')}</a></li>
+              <li className="footer__address">{t('contact.contactAddress')}</li>
             </ul>
           </div>
         </div>
         <div className="footer__bottom">
-          <span>{t('footer.copyright')}</span>
-          <div className="footer__legal">
+          <span className="footer__copyright">{t('footer.copyright')}</span>
+          <nav className="footer__legal" aria-label="Legal">
             <a href="#privacidade">{t('footer.privacidade')}</a>
+            <span className="footer__legal-sep" aria-hidden="true">·</span>
             <a href="#termos">{t('footer.termos')}</a>
+            <span className="footer__legal-sep" aria-hidden="true">·</span>
             <a href="#cookies">{t('footer.cookies')}</a>
-          </div>
+          </nav>
         </div>
       </div>
     </footer>
