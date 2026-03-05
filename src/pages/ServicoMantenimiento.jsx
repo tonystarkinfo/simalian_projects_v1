@@ -3,15 +3,14 @@ import { useLanguage } from '../contexts/LanguageContext';
 import ServiceAreaLayout from '../components/ServiceAreaLayout';
 
 const CARD_CONFIG = [
-  { modalId: 'mantenimiento-inspecoes', key: 'inspecoes', icon: 'fa-magnifying-glass', image: '/assets/img/servicos/placeholder.jpg', sections: [{ icon: 'fa-list', n: 4 }] },
-  { modalId: 'mantenimiento-diagnostico', key: 'diagnostico', icon: 'fa-clipboard-list', image: '/assets/img/servicos/placeholder.jpg', sections: [{ icon: 'fa-list', n: 4 }] },
-  { modalId: 'mantenimiento-reparacoes', key: 'reparacoes', icon: 'fa-wrench', image: '/assets/img/servicos/placeholder.jpg', sections: [{ icon: 'fa-list', n: 4 }] },
-  { modalId: 'mantenimiento-modernizacao', key: 'modernizacao', icon: 'fa-gears', image: '/assets/img/servicos/placeholder.jpg', sections: [{ icon: 'fa-list', n: 4 }] },
-  { modalId: 'mantenimiento-programada', key: 'programada', icon: 'fa-calendar-check', image: '/assets/img/servicos/placeholder.jpg', sections: [{ icon: 'fa-list', n: 4 }] },
-  { modalId: 'mantenimiento-pintura', key: 'pintura', icon: 'fa-paint-roller', image: '/assets/img/servicos/placeholder.jpg', sections: [{ icon: 'fa-list', n: 4 }] },
-  { modalId: 'mantenimiento-substituicao', key: 'substituicao', icon: 'fa-arrows-rotate', image: '/assets/img/servicos/placeholder.jpg', sections: [{ icon: 'fa-list', n: 4 }] },
-  { modalId: 'mantenimiento-relatorios', key: 'relatorios', icon: 'fa-file-lines', image: '/assets/img/servicos/placeholder.jpg', sections: [{ icon: 'fa-list', n: 4 }] },
-  { modalId: 'mantenimiento-gestao', key: 'gestao', icon: 'fa-chart-line', image: '/assets/img/servicos/placeholder.jpg', sections: [{ icon: 'fa-list', n: 4 }] },
+  { modalId: 'mantenimiento-electrico', key: 'electrico', icon: 'fa-bolt', image: '/assets/img/servicos/placeholder.jpg', sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-list', n: 4 }] },
+  { modalId: 'mantenimiento-mecanico', key: 'mecanico', icon: 'fa-gears', image: '/assets/img/servicos/placeholder.jpg', sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-list', n: 4 }] },
+  { modalId: 'mantenimiento-soldadura', key: 'soldadura', icon: 'fa-fire-flame-curved', image: '/assets/img/servicos/placeholder.jpg', sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-list', n: 4 }] },
+  { modalId: 'mantenimiento-soldadura-tig', key: 'soldaduraTig', icon: 'fa-wand-magic-sparkles', image: '/assets/img/servicos/placeholder.jpg', sections: [{ icon: 'fa-list', n: 4 }, { icon: 'fa-list', n: 4 }, { icon: 'fa-list', n: 4 }] },
+  { modalId: 'mantenimiento-caldereria', key: 'caldereria', icon: 'fa-industry', image: '/assets/img/servicos/placeholder.jpg', sections: [{ icon: 'fa-list', n: 4 }, { icon: 'fa-list', n: 4 }, { icon: 'fa-list', n: 4 }] },
+  { modalId: 'mantenimiento-preventivo', key: 'preventivo', icon: 'fa-calendar-check', image: '/assets/img/servicos/placeholder.jpg', sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-list', n: 4 }] },
+  { modalId: 'mantenimiento-intervenciones', key: 'intervenciones', icon: 'fa-screwdriver-wrench', image: '/assets/img/servicos/placeholder.jpg', sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-list', n: 4 }] },
+  { modalId: 'mantenimiento-mano-obra', key: 'manoObra', icon: 'fa-people-group', image: '/assets/img/servicos/placeholder.jpg', sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-list', n: 4 }] },
 ];
 
 function buildCards(t, prefix) {
