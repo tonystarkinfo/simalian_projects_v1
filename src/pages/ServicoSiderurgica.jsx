@@ -2,16 +2,63 @@ import { useMemo } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import ServiceAreaLayout from '../components/ServiceAreaLayout';
 
+const IMG_S = '/assets/img/servicos/imagens-sinderurgica';
+
 const CARD_CONFIG = [
-  { modalId: 'siderurgica-corte', key: 'corte', icon: 'fa-bolt', image: '/assets/img/servicos/corte-plasma-laser/01.jpg', images: ['/assets/img/servicos/corte-plasma-laser/01.jpg', '/assets/img/servicos/corte-plasma-laser/02.jpg', '/assets/img/servicos/corte-plasma-laser/03.jpg'], sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-cog', n: 4 }], modalDesc: false },
-  { modalId: 'siderurgica-dobra', key: 'dobra', icon: 'fa-arrows-to-dot', image: '/assets/img/servicos/dobra-calandragem/01.jpg', images: ['/assets/img/servicos/dobra-calandragem/01.jpg', '/assets/img/servicos/dobra-calandragem/02.jpg', '/assets/img/servicos/dobra-calandragem/03.jpg'], sections: [{ icon: 'fa-list', n: 5 }], modalDesc: false },
-  { modalId: 'siderurgica-soldadura', key: 'soldadura', icon: 'fa-fire', image: '/assets/img/servicos/soldadura-mig-mag-tig/01.jpg', images: ['/assets/img/servicos/soldadura-mig-mag-tig/01.jpg', '/assets/img/servicos/soldadura-mig-mag-tig/02.jpg', '/assets/img/servicos/soldadura-mig-mag-tig/03.jpg'], sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-shield-halved', n: 2 }], modalDesc: false },
-  { modalId: 'siderurgica-usinagem', key: 'usinagem', icon: 'fa-screwdriver-wrench', image: '/assets/img/servicos/placeholder.jpg', images: [], sections: [{ icon: 'fa-list', n: 4 }], modalDesc: true },
-  { modalId: 'siderurgica-tratamentos', key: 'tratamentos', icon: 'fa-paint-roller', image: '/assets/img/servicos/placeholder.jpg', images: [], sections: [{ icon: 'fa-list', n: 4 }], modalDesc: true },
-  { modalId: 'siderurgica-estruturas', key: 'estruturas', icon: 'fa-industry', image: '/assets/img/servicos/placeholder.jpg', images: [], sections: [{ icon: 'fa-list', n: 4 }], modalDesc: true },
-  { modalId: 'siderurgica-tubos', key: 'tubos', icon: 'fa-pipe', image: '/assets/img/servicos/placeholder.jpg', images: [], sections: [{ icon: 'fa-list', n: 4 }], modalDesc: true },
-  { modalId: 'siderurgica-qualidade', key: 'qualidade', icon: 'fa-magnifying-glass', image: '/assets/img/servicos/placeholder.jpg', images: [], sections: [{ icon: 'fa-list', n: 4 }], modalDesc: true },
-  { modalId: 'siderurgica-rastreabilidade', key: 'rastreabilidade', icon: 'fa-clipboard-check', image: '/assets/img/servicos/placeholder.jpg', images: [], sections: [{ icon: 'fa-list', n: 4 }], modalDesc: true },
+  {
+    modalId: 'siderurgica-tubulacao',
+    key: 'tubulacao',
+    icon: 'fa-pipe',
+    image: `${IMG_S}/TubulaciónIndustrial1.jpg`,
+    images: [`${IMG_S}/TubulaciónIndustrial1.jpg`, `${IMG_S}/TubulaciónIndustrial2.jpg`],
+    sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-cog', n: 3 }],
+    modalDesc: true,
+  },
+  {
+    modalId: 'siderurgica-estruturas',
+    key: 'estruturas',
+    icon: 'fa-industry',
+    image: `${IMG_S}/EstructurasMetálicas1.jpg`,
+    images: [`${IMG_S}/EstructurasMetálicas1.jpg`, `${IMG_S}/EstructurasMetálicas2.jpg`, `${IMG_S}/EstructurasMetálicas3.jpg`],
+    sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-cog', n: 3 }],
+    modalDesc: true,
+  },
+  {
+    modalId: 'siderurgica-plataformas',
+    key: 'plataformas',
+    icon: 'fa-layer-group',
+    image: `${IMG_S}/PlataformasPasarelasProteccionesIndustriales1.jpg`,
+    images: [`${IMG_S}/PlataformasPasarelasProteccionesIndustriales1.jpg`, `${IMG_S}/PlataformasPasarelasProteccionesIndustriales2.jpg`],
+    sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-cog', n: 3 }],
+    modalDesc: true,
+  },
+  {
+    modalId: 'siderurgica-caldeiraria',
+    key: 'caldeiraria',
+    icon: 'fa-fire',
+    image: `${IMG_S}/CaldereríaMecano-soldadura.jpg`,
+    images: [`${IMG_S}/CaldereríaMecano-soldadura.jpg`, `${IMG_S}/CaldereríaMecano-soldadura2.jpg`],
+    sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-cog', n: 3 }],
+    modalDesc: true,
+  },
+  {
+    modalId: 'siderurgica-depositos',
+    key: 'depositos',
+    icon: 'fa-droplet',
+    image: `${IMG_S}/Depósitosanques.jpg`,
+    images: [`${IMG_S}/Depósitosanques.jpg`, `${IMG_S}/Depósitosytanque2.jpg`],
+    sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-cog', n: 3 }],
+    modalDesc: true,
+  },
+  {
+    modalId: 'siderurgica-reparos',
+    key: 'reparos',
+    icon: 'fa-wrench',
+    image: `${IMG_S}/ReparacionesRefuerzos.jpg`,
+    images: [`${IMG_S}/ReparacionesRefuerzos.jpg`, `${IMG_S}/ReparacionesRefuerzos2.jpg`, `${IMG_S}/ReparacionesRefuerzos3.jpg`],
+    sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-cog', n: 3 }],
+    modalDesc: true,
+  },
 ];
 
 function buildCards(t, prefix) {
