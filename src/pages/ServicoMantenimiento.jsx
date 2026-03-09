@@ -3,71 +3,71 @@ import { useLanguage } from '../contexts/LanguageContext';
 import ServiceAreaLayout from '../components/ServiceAreaLayout';
 
 const IMG = '/assets/img/servicos';
-const IMG_M = `${IMG}/Imagens_simalian`;
+const IMG_M = `${IMG}/Imagens_simalian/mantienimento`;
 
 const CARD_CONFIG = [
   {
     modalId: 'mantenimiento-electrico',
     key: 'electrico',
     icon: 'fa-bolt',
-    image: `${IMG_M}/eletrecista1.png`,
-    images: [`${IMG_M}/eletrecista1.png`, `${IMG_M}/eletricista2.png`, `${IMG_M}/eletricista3.png`],
+    image: `${IMG_M}/eletricista (1).png`,
+    images: [`${IMG_M}/eletricista (1).png`, `${IMG_M}/eletricista (3).png`],
     sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-list', n: 4 }],
   },
   {
     modalId: 'mantenimiento-mecanico',
     key: 'mecanico',
     icon: 'fa-gears',
-    image: `${IMG_M}/mecanica.jpg`,
-    images: [`${IMG_M}/mecanica.jpg`, `${IMG_M}/mecanico2.jpg`, `${IMG_M}/mecanico3.jpg`],
+    image: `${IMG_M}/mecanico (1).png`,
+    images: [`${IMG_M}/mecanico (1).png`, `${IMG_M}/mecanico (2).png`],
     sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-list', n: 4 }],
   },
   {
     modalId: 'mantenimiento-soldadura',
     key: 'soldadura',
     icon: 'fa-fire-flame-curved',
-    image: `${IMG_M}/SoldadurayReparacionesPlanta1.jpg`,
-    images: [`${IMG_M}/SoldadurayReparacionesPlanta1.jpg`],
+    image: `${IMG_M}/reparatione.png`,
+    images: [`${IMG_M}/reparatione.png`, `${IMG_M}/reparatione2.png`],
     sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-list', n: 4 }],
   },
   {
     modalId: 'mantenimiento-soldadura-tig',
     key: 'soldaduraTig',
     icon: 'fa-wand-magic-sparkles',
-    image: `${IMG_M}/soldatig1.png`,
-    images: [`${IMG_M}/soldatig1.png`, `${IMG_M}/tig2.jpg`, `${IMG_M}/tig3.jpg`],
+    image: `${IMG_M}/soldati1.png`,
+    images: [`${IMG_M}/soldati1.png`, `${IMG_M}/soldati2.png`],
     sections: [{ icon: 'fa-list', n: 4 }, { icon: 'fa-list', n: 4 }, { icon: 'fa-list', n: 4 }],
   },
   {
     modalId: 'mantenimiento-caldereria',
     key: 'caldereria',
     icon: 'fa-industry',
-    image: `${IMG_M}/caldeira.jpg`,
-    images: [`${IMG_M}/caldeira.jpg`, `${IMG_M}/caldeira2.jpg`, `${IMG_M}/cladeira3.jpg`],
+    image: `${IMG_M}/caldeira (1).png`,
+    images: [`${IMG_M}/caldeira (1).png`, `${IMG_M}/caldeira (2).png`],
     sections: [{ icon: 'fa-list', n: 4 }, { icon: 'fa-list', n: 4 }, { icon: 'fa-list', n: 4 }],
   },
   {
     modalId: 'mantenimiento-preventivo',
     key: 'preventivo',
     icon: 'fa-calendar-check',
-    image: `${IMG_M}/MantenimientoPreventivoIndustrial1.jpg`,
-    images: [`${IMG_M}/MantenimientoPreventivoIndustrial1.jpg`, `${IMG_M}/MantenimientoPreventivoIndustrial2.jpg`, `${IMG_M}/MantenimientoPreventivoIndustrial1.jpg`],
+    image: `${IMG_M}/mantenimento1.png`,
+    images: [`${IMG_M}/mantenimento1.png`, `${IMG_M}/manteniemento2.png`],
     sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-list', n: 4 }],
   },
   {
     modalId: 'mantenimiento-intervenciones',
     key: 'intervenciones',
     icon: 'fa-screwdriver-wrench',
-    image: `${IMG_M}/planta.png`,
-    images: [`${IMG_M}/planta.png`, `${IMG_M}/planta2.png`],
+    image: `${IMG_M}/intervetion1 (1).png`,
+    images: [`${IMG_M}/intervetion1 (1).png`, `${IMG_M}/intervetion1 (2).png`],
     sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-list', n: 4 }],
   },
   {
     modalId: 'mantenimiento-mano-obra',
     key: 'manoObra',
     icon: 'fa-people-group',
-    image: `${IMG_M}/maodeobra.jpg`,
-    images: [`${IMG_M}/maodeobra.jpg`, `${IMG_M}/maodeobra2.jpg`, `${IMG_M}/maodeobra3.png`],
+    image: `${IMG_M}/mqodeobra1 (1).png`,
+    images: [`${IMG_M}/mqodeobra1 (1).png`, `${IMG_M}/mqodeobra1 (2).png`],
     sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-list', n: 4 }],
   },
 ];
