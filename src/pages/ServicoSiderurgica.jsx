@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import ServiceAreaLayout from '../components/ServiceAreaLayout';
 
-const IMG_S = '/assets/img/servicos/imagens-sinderurgica';
+const IMG_S = '/assets/img/servicos/imagens-siderurgica';
 
 const CARD_CONFIG = [
   {
@@ -27,8 +27,8 @@ const CARD_CONFIG = [
     modalId: 'siderurgica-plataformas',
     key: 'plataformas',
     icon: 'fa-layer-group',
-    image: `${IMG_S}/PlataformasPasarelasProteccionesIndustriales1.jpg`,
-    images: [`${IMG_S}/PlataformasPasarelasProteccionesIndustriales1.jpg`, `${IMG_S}/PlataformasPasarelasProteccionesIndustriales2.jpg`],
+    image: `${IMG_S}/PlataformasPasarelasProteccionesIndustriales1.jpeg`,
+    images: [`${IMG_S}/PlataformasPasarelasProteccionesIndustriales1.jpeg`, `${IMG_S}/PlataformasPasarelasProteccionesIndustriales22.jpeg`],
     sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-cog', n: 3 }],
     modalDesc: true,
   },
