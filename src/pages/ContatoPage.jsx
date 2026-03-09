@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { sanitize } from '../services/utils';
 import { submitFormData } from '../services/formService';
@@ -6,7 +7,11 @@ import { submitFormData } from '../services/formService';
 function validateField(field) {
   const errorEl = document.getElementById(`${field.id}-error`);
   let isValid = true;
-  if (field.required && !field.value.trim()) isValid = false;
+  if (field.type === 'checkbox') {
+    if (field.required) isValid = field.checked;
+  } else if (field.required && !field.value.trim()) {
+    isValid = false;
+  }
   if (field.type === 'email' && field.value.trim()) {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     isValid = emailPattern.test(field.value.trim());
@@ -97,7 +102,7 @@ export default function ContatoPage() {
       formData.anexos = await readFilesAsBase64(fileInput.files);
     }
 
-    submitFormData(formData)
+    submitFormData(formData, fileInput.files.length > 0 ? fileInput.files : null)
       .then(() => {
         successEl.classList.add('visible');
         form.reset();
@@ -203,6 +208,17 @@ export default function ContatoPage() {
                     <input type="file" id="anexos" name="anexos" className="form-input form-file" accept=".pdf,.dwg,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" multiple aria-describedby="anexos-hint" />
                     <span id="anexos-hint" className="form-hint">{t('contact.anexarHint')}</span>
                     <div className="form-error" id="anexos-error" role="alert">{t('contact.anexarError')}</div>
+                  </div>
+                  <p className="form-privacy-notice">
+                    {t('contact.formPrivacyNotice')}
+                    <Link to="/privacidade" className="link--secondary">{t('footer.privacidade')}</Link>.
+                  </p>
+                  <div className="form-group form-group--checkbox">
+                    <label className="form-checkbox-label">
+                      <input type="checkbox" id="consent" name="consent" className="form-checkbox" required aria-required="true" onBlur={handleBlur} onChange={handleInput} />
+                      <span>{t('contact.formConsentLabel')}</span>
+                    </label>
+                    <div className="form-error" id="consent-error" role="alert">{t('contact.erroConsent')}</div>
                   </div>
                   <button type="submit" className="btn btn--primary btn--orcamento btn--lg btn--full-width" id="submitBtn">
                     <span id="submitText">

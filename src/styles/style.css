@@ -2663,6 +2663,72 @@ p {
   background: var(--color-primary);
 }
 
+/* Página Proteção de Dados / Legal: texto em prosa */
+.prose {
+  max-width: 720px;
+}
+.prose__intro {
+  color: var(--color-text-light);
+  margin-bottom: var(--space-xl);
+  line-height: 1.6;
+}
+.prose--legal h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-deep);
+  margin: var(--space-lg) 0 var(--space-md);
+}
+.prose__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.prose__list li {
+  margin-bottom: var(--space-md);
+  padding-left: 0;
+  line-height: 1.6;
+  color: var(--color-text-light);
+}
+.prose__list li strong {
+  color: var(--color-deep);
+  font-weight: 600;
+}
+.prose__anchor-title {
+  scroll-margin-top: 2rem;
+}
+.prose__block {
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+
+/* Formulário: aviso privacidade e checkbox consentimento */
+.form-privacy-notice {
+  font-size: 0.9375rem;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-md);
+  line-height: 1.5;
+}
+.form-group--checkbox {
+  margin-bottom: var(--space-lg);
+}
+.form-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  cursor: pointer;
+  font-size: 0.9375rem;
+  color: var(--color-text-light);
+  line-height: 1.5;
+}
+.form-checkbox {
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+.form-group--checkbox .form-error {
+  margin-top: var(--space-xs);
+}
+
 /* ============================================================
    CTA BANNER
    ============================================================ */

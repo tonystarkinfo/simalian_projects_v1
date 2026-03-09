@@ -21,6 +21,7 @@ const ServicoSiderurgica = lazy(() => import('./pages/ServicoSiderurgica'));
 const ServicoObra = lazy(() => import('./pages/ServicoObra'));
 const ServicoMantenimiento = lazy(() => import('./pages/ServicoMantenimiento'));
 const ContatoPage = lazy(() => import('./pages/ContatoPage'));
+const ProtecaoDadosPage = lazy(() => import('./pages/ProtecaoDadosPage'));
 
 function AppContent() {
   const location = useLocation();
@@ -79,6 +80,7 @@ function AppContent() {
           <Route path="/servicos/mantenimiento-reparaciones" element={<Navigate to="/mantenimiento" replace />} />
           <Route path="/engenharia" element={<Navigate to="/" replace />} />
           <Route path="/contato" element={<ContatoPage />} />
+          <Route path="/privacidade" element={<ProtecaoDadosPage />} />
         </Routes>
       </Suspense>
       <Footer />

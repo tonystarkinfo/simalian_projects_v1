@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function CookieBanner() {
@@ -26,7 +27,7 @@ export default function CookieBanner() {
 
   return (
     <div className="cookie-banner is-visible" id="cookieBanner" role="dialog" aria-label="Consentimento de cookies">
-      <p>{t('cookie.prefix')}<a href="#privacidade" className="link--secondary">{t('footer.privacidade')}</a>{t('cookie.suffix')}</p>
+      <p>{t('cookie.prefix')}<Link to="/privacidade" className="link--secondary">{t('footer.privacidade')}</Link>{t('cookie.suffix')}</p>
       <div className="cookie-banner__actions">
         <button type="button" className="btn btn--primary btn--sm" id="cookieAccept" onClick={handleAccept}>{t('cookie.aceitar')}</button>
         <button type="button" className="btn btn--secondary btn--sm btn--secondary-muted" id="cookieDecline" onClick={handleDecline}>{t('cookie.recusar')}</button>
