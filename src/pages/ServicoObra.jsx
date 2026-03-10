@@ -30,27 +30,19 @@ const CARD_CONFIG = [
     sections: [{ icon: 'fa-list', n: 3 }, { icon: 'fa-cog', n: 3 }],
   },
   {
-    modalId: 'construccion-cerramientos',
-    key: 'cerramientos',
-    icon: 'fa-fence',
-    image: `${IMG_C}/Portão Industrial Verde 4K.png`,
-    images: [`${IMG_C}/Portão Industrial Verde 4K.png`, `${IMG_C}/Cerca Industrial 4K.png`],
-    sections: [{ icon: 'fa-list', n: 3 }, { icon: 'fa-cog', n: 3 }],
-  },
-  {
     modalId: 'construccion-refuerzos',
     key: 'refuerzos',
     icon: 'fa-wrench',
-    image: `${IMG_C}/Dois Trabalhadores Armadura Aço Simalian 4K.png`,
-    images: [`${IMG_C}/Dois Trabalhadores Armadura Aço Simalian 4K.png`, `${IMG_C}/Estrutura Metálica Vermelha Interna 4K.png`],
+    image: `${IMG_C}/reforcoestrutural.jpg`,
+    images: [`${IMG_C}/reforcoestrutural.jpg`,],
     sections: [{ icon: 'fa-list', n: 3 }, { icon: 'fa-cog', n: 3 }],
   },
   {
     modalId: 'construccion-entreplantas',
     key: 'entreplantas',
     icon: 'fa-layer-group',
-    image: `${IMG_C}/Armazém Mezanino Metálico 4K.png`,
-    images: [`${IMG_C}/Armazém Mezanino Metálico 4K.png`, `${IMG_C}/Galpão Industrial Dois Níveis 4K.png`],
+    image: `${IMG_C}/Galpão Industrial Dois Níveis 4K.png`,
+    images: [`${IMG_C}/Galpão Industrial Dois Níveis 4K.png`],
     sections: [{ icon: 'fa-list', n: 3 }, { icon: 'fa-cog', n: 3 }],
   },
   {
@@ -58,7 +50,7 @@ const CARD_CONFIG = [
     key: 'herrajes',
     icon: 'fa-bolt',
     image: `${IMG_C}/usinagem.webp`,
-    images: [`${IMG_C}/usinagem.webp`, `${IMG_C}/Grampo Fixação Painel Solar 4K.png`],
+    images: [`${IMG_C}/usinagem.webp`,],
     sections: [{ icon: 'fa-list', n: 3 }, { icon: 'fa-cog', n: 3 }],
   },
 ];
@@ -96,6 +88,7 @@ export default function ServicoObra() {
       title={t('servicosConstruccion.title')}
       subtitle={t('servicosConstruccion.subtitle')}
       cards={cards}
+      bannerImage="/assets/img/servicos/banner-imagem/bannermao-deobra.png"
     />
   );
 }

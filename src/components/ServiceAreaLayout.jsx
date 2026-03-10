@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import ModalOverlay from './ModalOverlay';
 
-export default function ServiceAreaLayout({ sectionLabel, title, subtitle, cards }) {
+export default function ServiceAreaLayout({ sectionLabel, title, subtitle, cards, bannerImage }) {
   const { t } = useLanguage();
   const [activeModalId, setActiveModalId] = useState(null);
   const [galleryMain, setGalleryMain] = useState(() => {
@@ -38,7 +38,10 @@ export default function ServiceAreaLayout({ sectionLabel, title, subtitle, cards
 
   return (
     <>
-      <header className="page-header">
+      <header
+        className={`page-header${bannerImage ? ' page-header--has-banner' : ''}`}
+        style={bannerImage ? { backgroundImage: `url(${bannerImage})` } : undefined}
+      >
         <div className="container page-header__content">
           <span className="section-label section-label--light">{sectionLabel}</span>
           <h1 className="page-header__title">{title}</h1>

@@ -33,29 +33,11 @@ const CARD_CONFIG = [
     modalDesc: true,
   },
   {
-    modalId: 'siderurgica-caldeiraria',
-    key: 'caldeiraria',
-    icon: 'fa-fire',
-    image: `${IMG_S}/caldeira2.png`,
-    images: [`${IMG_S}/caldeira2.png`, `${IMG_S}/caldeira3.png`],
-    sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-cog', n: 3 }],
-    modalDesc: true,
-  },
-  {
     modalId: 'siderurgica-depositos',
     key: 'depositos',
     icon: 'fa-droplet',
     image: `${IMG_S}/deposito.jpg`,
     images: [`${IMG_S}/deposito.jpg`, `${IMG_S}/deposito2.jpg`],
-    sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-cog', n: 3 }],
-    modalDesc: true,
-  },
-  {
-    modalId: 'siderurgica-reparos',
-    key: 'reparos',
-    icon: 'fa-wrench',
-    image: `${IMG_S}/reparacione1.png`,
-    images: [`${IMG_S}/reparacione1.png`, `${IMG_S}/reparacione2.png`],
     sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-cog', n: 3 }],
     modalDesc: true,
   },
@@ -94,6 +76,7 @@ export default function ServicoSiderurgica() {
       title={t('servicosSiderurgica.title')}
       subtitle={t('servicosSiderurgica.subtitle')}
       cards={cards}
+      bannerImage="/assets/img/servicos/banner-imagem/banner%20sinderugica.jpeg"
     />
   );
 }
