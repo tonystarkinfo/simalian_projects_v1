@@ -104,13 +104,14 @@ A secção **Mantenimiento** (`/mantenimiento`) apresenta **8 cards de serviços
 
 ```bash
 npm install    # Instalar dependências
-npm run api    # Servidor da API de contacto (porta 3001) – deixar a correr
-npm run dev    # Servidor de desenvolvimento (Vite, porta 5173)
+npm run api      # Servidor da API de contacto (porta 3001) – deixar a correr
+npm run dev      # Servidor de desenvolvimento (Vite, porta 5173)
+npm run dev:all  # Correr frontend + API num único comando (recomendado para testar o formulário)
 npm run build  # Build de produção
 npm run preview # Pré-visualizar build
 ```
 
-Para testar o formulário de contacto em local: abre **dois** terminais — num corre `npm run api`, no outro `npm run dev`. O Vite faz proxy de `/api` para o servidor da API.
+Para testar o formulário de contacto em local: corre `npm run dev:all` (frontend + API) ou, em dois terminais, `npm run api` e `npm run dev`. O Vite faz proxy de `/api` para o servidor da API.
 
 ---
 
@@ -139,7 +140,7 @@ O formulário envia os dados para **POST /api/contact**. O servidor em `server.j
 | `RESEND_TO_EMAIL` | E-mail que recebe os contactos |
 | `RESEND_FROM` | (Opcional) Remetente; default `onboarding@resend.dev` para testes |
 
-**Testar:** num terminal `npm run api`, noutro `npm run dev`. Abre o site em http://localhost:5173 e envia o formulário de contacto.
+**Testar:** `npm run dev:all` ou, em dois terminais, `npm run api` e `npm run dev`. Abre o site em http://localhost:5173 e envia o formulário de contacto.
 
 ---
 

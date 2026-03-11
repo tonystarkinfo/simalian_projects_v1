@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "api": "node server.js",
+    "dev:all": "concurrently \"npm run dev\" \"npm run api\"",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
+    "concurrently": "^9.1.2",
     "vite": "^5.0.0"
   }
 }

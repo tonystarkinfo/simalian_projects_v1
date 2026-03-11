@@ -95,10 +95,11 @@ app.post('/api/contact', upload.array('anexos', 5), async (req, res) => {
     const { data: sendData, error } = await resend.emails.send(emailPayload);
 
     if (error) {
-      console.error('Resend error:', error);
+      console.error('Resend error:', JSON.stringify(error, null, 2));
+      const msg = error.message || 'Erro ao enviar e-mail.';
       return res.status(500).json({
         success: false,
-        error: error.message || 'Erro ao enviar e-mail.',
+        error: msg,
       });
     }
 
@@ -108,7 +109,7 @@ app.post('/api/contact', upload.array('anexos', 5), async (req, res) => {
       id: sendData?.id,
     });
   } catch (err) {
-    console.error('API contact error:', err);
+    console.error('API contact error:', err?.stack || err);
     res.status(500).json({
       success: false,
       error: err.message || 'Erro ao processar o pedido.',
