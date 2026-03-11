@@ -70,7 +70,7 @@ export const translations = {
     },
     contact: {
       contactPhone: '+34 680 86 66 17',
-      contactEmail: 'Info.simalian@gmail.com',
+      contactEmail: 'comercial@simalian.com',
       contactAddress: 'Cam carreró 649, coro de avall - Les Franqueses',
       label: 'Get in Touch',
       title: 'Request a Quote',
@@ -648,7 +648,7 @@ export const translations = {
     },
     contact: {
       contactPhone: '+34 680 86 66 17',
-      contactEmail: 'Info.simalian@gmail.com',
+      contactEmail: 'comercial@simalian.com',
       contactAddress: 'Cam carreró 649, coro de avall - Les Franqueses',
       label: 'Hable Con Nosotros',
       title: 'Solicitar Presupuesto',
@@ -1230,7 +1230,7 @@ export const translations = {
     },
     contact: {
       contactPhone: '+34 680 86 66 17',
-      contactEmail: 'Info.simalian@gmail.com',
+      contactEmail: 'comercial@simalian.com',
       contactAddress: 'Cam carreró 649, coro de avall - Les Franqueses',
       label: 'Parlez-Nous',
       title: 'Demander un Devis',
@@ -1704,7 +1704,7 @@ export const translations = {
     },
     contact: {
       contactPhone: '+34 680 86 66 17',
-      contactEmail: 'Info.simalian@gmail.com',
+      contactEmail: 'comercial@simalian.com',
       contactAddress: 'Cam carreró 649, coro de avall - Les Franqueses',
       label: 'Parleu amb Nosaltres',
       title: 'Sol·licitar Pressupost',

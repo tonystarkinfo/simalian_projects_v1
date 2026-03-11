@@ -104,10 +104,13 @@ A secção **Mantenimiento** (`/mantenimiento`) apresenta **8 cards de serviços
 
 ```bash
 npm install    # Instalar dependências
-npm run dev    # Servidor de desenvolvimento (Vite)
+npm run api    # Servidor da API de contacto (porta 3001) – deixar a correr
+npm run dev    # Servidor de desenvolvimento (Vite, porta 5173)
 npm run build  # Build de produção
 npm run preview # Pré-visualizar build
 ```
+
+Para testar o formulário de contacto em local: abre **dois** terminais — num corre `npm run api`, no outro `npm run dev`. O Vite faz proxy de `/api` para o servidor da API.
 
 ---
 
@@ -121,11 +124,29 @@ npm run preview # Pré-visualizar build
 
 ---
 
+## Formulário de contacto (Resend)
+
+O formulário envia os dados para **POST /api/contact**. O servidor em `server.js` usa a [API Resend](https://resend.com) para enviar o e-mail.
+
+- **Frontend:** `src/services/formService.js` faz `fetch('/api/contact', …)` com JSON. A página de contacto mostra feedback de sucesso/erro.
+- **API local:** `server.js` — corre com `npm run api` (porta 3001). O Vite faz proxy de `/api` para este servidor.
+
+**Variáveis de ambiente** (ficheiro `.env` na raiz):
+
+| Variável | Descrição |
+|----------|-----------|
+| `RESEND_API_KEY` | Chave da API Resend ([resend.com/api-keys](https://resend.com/api-keys)) |
+| `RESEND_TO_EMAIL` | E-mail que recebe os contactos |
+| `RESEND_FROM` | (Opcional) Remetente; default `onboarding@resend.dev` para testes |
+
+**Testar:** num terminal `npm run api`, noutro `npm run dev`. Abre o site em http://localhost:5173 e envia o formulário de contacto.
+
+---
+
 ## Próximos Passos (opcional)
 
 - Página de Engenharia dedicada (atualmente redireciona para home)
 - Política de Privacidade e Termos de Uso em páginas próprias
-- Integração do formulário com e-mail ou API
 - Imagens reais dos serviços (substituir placeholders)
 - Analytics com consentimento (cookie banner já presente)
 

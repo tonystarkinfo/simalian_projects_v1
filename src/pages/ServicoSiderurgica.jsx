@@ -8,7 +8,7 @@ const CARD_CONFIG = [
   {
     modalId: 'siderurgica-tubulacao',
     key: 'tubulacao',
-    icon: 'fa-pipe',
+    icon: 'fa-bars-staggered',
     image: `${IMG_S}/tubus1.avif`,
     images: [`${IMG_S}/tubus1.avif`, `${IMG_S}/tubulação2.jpg`],
     sections: [{ icon: 'fa-list', n: 5 }, { icon: 'fa-cog', n: 3 }],

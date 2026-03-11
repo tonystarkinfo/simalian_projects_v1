@@ -29,20 +29,6 @@ function validateField(field) {
 export default function ContatoPage() {
   const { t } = useLanguage();
 
-  function readFilesAsBase64(files) {
-    return Promise.all(
-      Array.from(files).map(
-        (file) =>
-          new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = () => resolve({ fileName: file.name, base64: reader.result });
-            reader.onerror = reject;
-            reader.readAsDataURL(file);
-          })
-      )
-    );
-  }
-
   async function handleFormSubmit(e) {
     e.preventDefault();
     const form = e.target;
@@ -97,10 +83,6 @@ export default function ContatoPage() {
       porte: form.porte.value,
       mensagem: sanitize(form.mensagem.value.trim()),
     };
-
-    if (fileInput.files.length > 0) {
-      formData.anexos = await readFilesAsBase64(fileInput.files);
-    }
 
     submitFormData(formData, fileInput.files.length > 0 ? fileInput.files : null)
       .then(() => {
@@ -259,7 +241,7 @@ export default function ContatoPage() {
                   <div className="contact-info__icon"><i className="fa-solid fa-envelope" aria-hidden="true"></i></div>
                   <div>
                     <div className="contact-info__label">{t('home.labelEmail')}</div>
-                    <div className="contact-info__value"><a href="mailto:info@simalian.pt">info@simalian.pt</a></div>
+                    <div className="contact-info__value"><a href="mailto:comercial@simalian.com">comercial@simalian.com</a></div>
                   </div>
                 </div>
                 <div className="contact-info__item">

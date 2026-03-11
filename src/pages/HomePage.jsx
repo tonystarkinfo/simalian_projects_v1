@@ -196,7 +196,7 @@ export default function HomePage() {
                   <i className="fa-solid fa-envelope" aria-hidden="true"></i>
                   <div>
                     <span className="home-contact-institutional__label">{t('home.labelEmail')}</span>
-                    <a href="mailto:geral@simalian.com">geral@simalian.com</a>
+                    <a href="mailto:comercial@simalian.com">comercial@simalian.com</a>
                   </div>
                 </div>
                 <div className="home-contact-institutional__item">
