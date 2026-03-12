@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import ModalOverlay from './ModalOverlay';
+import LazyImage from './LazyImage';
 
 export default function ServiceAreaLayout({ sectionLabel, title, subtitle, cards, bannerImage }) {
   const { t } = useLanguage();
@@ -70,13 +71,15 @@ export default function ServiceAreaLayout({ sectionLabel, title, subtitle, cards
                     <div className="service-card__icon">
                       <i className={`fa-solid ${card.icon}`} aria-hidden="true"></i>
                     </div>
-                    <img
-                      className="service-card__img"
+                    <LazyImage
                       src={card.image}
                       alt={card.alt}
+                      className="service-card__img"
+                      wrapperClassName="service-card__img-wrap-inner"
                       loading="lazy"
-                      width="800"
-                      height="450"
+                      width={800}
+                      height={450}
+                      fetchPriority={index === 0 ? 'high' : undefined}
                     />
                   </div>
                   <div className="service-card__body">
@@ -121,7 +124,7 @@ export default function ServiceAreaLayout({ sectionLabel, title, subtitle, cards
             {content.images?.length ? (
               <div className="modal-gallery" data-service={card.modalId}>
                 <div className="modal-gallery__main">
-                  <img src={mainImg} alt={`${card.title} — vista principal`} />
+                  <LazyImage src={mainImg} alt={`${card.title} — vista principal`} className="modal-gallery__main-img" />
                 </div>
                 <div className="modal-gallery__thumbs">
                   {content.images.map((src, i) => (

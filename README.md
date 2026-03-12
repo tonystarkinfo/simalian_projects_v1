@@ -125,6 +125,15 @@ Para testar o formulário de contacto em local: corre `npm run dev:all` (fronten
 
 ---
 
+## Otimização de imagens
+
+Para o site carregar mais rápido:
+
+- **Já aplicado no código:** preload da primeira imagem do hero em `index.html`, `fetchPriority="high"` na primeira imagem visível de cada página, `decoding="async"` e lazy loading nas restantes.
+- **Recomendado:** comprimir as imagens em `public/assets/` (ex.: [TinyPNG](https://tinypng.com), exportar em WebP quando possível). Menor tamanho de ficheiro = carregamento mais rápido.
+
+---
+
 ## Formulário de contacto (Resend)
 
 O formulário envia os dados para **POST /api/contact**. O servidor em `server.js` usa a [API Resend](https://resend.com) para enviar o e-mail.

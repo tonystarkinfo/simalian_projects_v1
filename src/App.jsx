@@ -61,10 +61,6 @@ function AppContent() {
     }
   }, [location.pathname]);
 
-  if (location.pathname === '/index-react.html') {
-    return <Navigate to="/" replace />;
-  }
-
   return (
     <>
       <NavFloat />

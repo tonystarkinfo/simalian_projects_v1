@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import ModalOverlay from '../components/ModalOverlay';
+import LazyImage from '../components/LazyImage';
 
 const GALLERY_IMAGES = {
   'modal-corte': ['/assets/img/servicos/corte-plasma-laser/01.jpg', '/assets/img/servicos/corte-plasma-laser/02.jpg', '/assets/img/servicos/corte-plasma-laser/03.jpg'],
@@ -68,7 +69,7 @@ export default function ServicosPage() {
               >
                 <div className="service-card__img-wrap">
                   <div className="service-card__icon"><i className="fa-solid fa-bolt" aria-hidden="true"></i></div>
-                  <img className="service-card__img" src="/assets/img/servicos/corte-plasma-laser/01.jpg" alt={t('servicos.corteTitle')} loading="lazy" width="800" height="450" />
+                  <LazyImage className="service-card__img" wrapperClassName="service-card__img-wrap-inner" src="/assets/img/servicos/corte-plasma-laser/01.jpg" alt={t('servicos.corteTitle')} loading="lazy" width={800} height={450} fetchPriority="high" />
                 </div>
                 <div className="service-card__body">
                   <h3 className="service-card__title">{t('servicos.corteTitle')}</h3>
@@ -87,7 +88,7 @@ export default function ServicosPage() {
               >
                 <div className="service-card__img-wrap">
                   <div className="service-card__icon"><i className="fa-solid fa-arrows-to-dot" aria-hidden="true"></i></div>
-                  <img className="service-card__img" src="/assets/img/servicos/dobra-calandragem/01.jpg" alt={t('servicos.dobraTitle')} loading="lazy" width="800" height="450" />
+                  <LazyImage className="service-card__img" wrapperClassName="service-card__img-wrap-inner" src="/assets/img/servicos/dobra-calandragem/01.jpg" alt={t('servicos.dobraTitle')} loading="lazy" width={800} height={450} />
                 </div>
                 <div className="service-card__body">
                   <h3 className="service-card__title">{t('servicos.dobraTitle')}</h3>
@@ -106,7 +107,7 @@ export default function ServicosPage() {
               >
                 <div className="service-card__img-wrap">
                   <div className="service-card__icon"><i className="fa-solid fa-fire" aria-hidden="true"></i></div>
-                  <img className="service-card__img" src="/assets/img/servicos/soldadura-mig-mag-tig/01.jpg" alt={t('servicos.soldaduraTitle')} loading="lazy" width="800" height="450" />
+                  <LazyImage className="service-card__img" wrapperClassName="service-card__img-wrap-inner" src="/assets/img/servicos/soldadura-mig-mag-tig/01.jpg" alt={t('servicos.soldaduraTitle')} loading="lazy" width={800} height={450} />
                 </div>
                 <div className="service-card__body">
                   <h3 className="service-card__title">{t('servicos.soldaduraTitle')}</h3>
@@ -133,7 +134,7 @@ export default function ServicosPage() {
       <ModalOverlay id="modal-corte" titleId="modal-corte-title" title={t('servicos.corteTitle')} isActive={activeModalId === 'modal-corte'} onClose={closeModal}>
         <div className="modal-gallery" data-service="corte-plasma-laser">
           <div className="modal-gallery__main">
-            <img src={mainImageByModal['modal-corte']} alt={t('servicos.corteTitle')} />
+            <LazyImage src={mainImageByModal['modal-corte']} alt={t('servicos.corteTitle')} className="modal-gallery__main-img" />
           </div>
           <div className="modal-gallery__thumbs">
             {GALLERY_IMAGES['modal-corte'].map((src, i) => (
@@ -163,7 +164,7 @@ export default function ServicosPage() {
       <ModalOverlay id="modal-conformacao" titleId="modal-conformacao-title" title={t('servicos.dobraTitle')} isActive={activeModalId === 'modal-conformacao'} onClose={closeModal}>
         <div className="modal-gallery" data-service="dobra-calandragem">
           <div className="modal-gallery__main">
-            <img src={mainImageByModal['modal-conformacao']} alt={t('servicos.dobraTitle')} />
+            <LazyImage src={mainImageByModal['modal-conformacao']} alt={t('servicos.dobraTitle')} className="modal-gallery__main-img" />
           </div>
           <div className="modal-gallery__thumbs">
             {GALLERY_IMAGES['modal-conformacao'].map((src, i) => (
@@ -186,7 +187,7 @@ export default function ServicosPage() {
       <ModalOverlay id="modal-soldadura" titleId="modal-soldadura-title" title={t('servicos.soldaduraTitle')} isActive={activeModalId === 'modal-soldadura'} onClose={closeModal}>
         <div className="modal-gallery" data-service="soldadura-mig-mag-tig">
           <div className="modal-gallery__main">
-            <img src={mainImageByModal['modal-soldadura']} alt={t('servicos.soldaduraTitle')} />
+            <LazyImage src={mainImageByModal['modal-soldadura']} alt={t('servicos.soldaduraTitle')} className="modal-gallery__main-img" />
           </div>
           <div className="modal-gallery__thumbs">
             {GALLERY_IMAGES['modal-soldadura'].map((src, i) => (

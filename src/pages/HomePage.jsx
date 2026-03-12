@@ -35,6 +35,7 @@ export default function HomePage() {
         setHeroLoaded((prev) => (prev[key] ? prev : { ...prev, [key]: true }));
       };
       img.src = image;
+      if (idx > 0) img.fetchPriority = 'low';
       return img;
     });
     return () => {
