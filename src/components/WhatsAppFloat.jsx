@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const WHATSAPP_NUMBER = '35692317981'; // +35 692 31 79 81 — sem + ou espaços para wa.me
+const WHATSAPP_NUMBER = '34680866617';
 
 export default function WhatsAppFloat() {
   const { t } = useLanguage();
