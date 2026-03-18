@@ -122,27 +122,145 @@ export const translations = {
     },
     protecaoDados: {
       sectionLabel: 'Legal',
-      title: 'Data Protection',
-      subtitle: 'Overview of data protection regulations applicable to our activity in Spain.',
-      contentHeading: 'Data protection content',
-      intro: 'Data protection in Spain is governed by the GDPR (EU General Data Protection Regulation) and adapted by the LOPDGDD (Organic Law 3/2018). Companies must ensure transparency and consent to avoid fines of up to 20 million euros or 4% of global annual turnover. The Spanish Data Protection Agency (AEPD) supervises compliance.',
-      mainPointsTitle: 'Main points',
-      rgpdTitle: 'GDPR + LOPDGDD: ',
-      rgpdText: 'The GDPR is the European basis, while the LOPDGDD is the specific Spanish law that reinforces digital rights.',
-      consentTitle: 'Consent and rights: ',
-      consentText: 'The law requires clear consent and guarantees users rights of access, rectification, erasure and portability.',
-      aepdTitle: 'AEPD: ',
-      aepdText: 'The AEPD is the authority that monitors and sanctions data violations in Spain.',
-      sancionesTitle: 'Sanctions: ',
-      sancionesText: 'Data infringement can result in heavy fines, divided into minor, serious (up to €300,000) and very serious (up to 20 million euros or 4% of turnover).',
-      lgpdTitle: 'LGPD in Brazil: ',
-      lgpdText: 'Note that the LGPD is the Brazilian law, while the GDPR is the European equivalent.',
-      termosTitle: 'Terms of Use',
-      termosText: 'Use of this website implies acceptance of these terms. The content is for informational purposes. SIMALIAN PROJECTS reserves the right to modify the content and the present terms. For any legal or data protection issue, please contact us or consult the AEPD.',
-      cookiesTitle: 'Cookies',
-      cookiesIntro: 'This site uses only the cookies necessary for its operation and to record your cookie consent preference:',
-      cookiesItem1: 'Consent record: we store your choice (accept/decline) so we do not show the banner again. This data is stored locally in your browser and is not sent to any server.',
-      cookiesItem2: 'We do not use advertising or third-party analytics cookies without your prior consent.',
+      title: 'Privacy & Cookies Policy',
+      subtitle: 'Information about how we process personal data and how cookies are used on this website.',
+      contentHeading: 'Privacy and cookies content',
+      intro:
+        'This Privacy & Cookies Policy applies to all users of this website. It explains what we consider a “user”, what data we process, for what purposes, on what legal grounds, how long it is retained, and what rights you have regarding your personal data. It also describes the use of cookies and similar technologies (such as local browser storage).',
+      general: {
+        title: 'General information',
+        p1:
+          'This policy applies to anyone who accesses, browses, or interacts with the website, including those who submit forms, request a quote, contact us, or use any of the available features.',
+        p2:
+          'Our goal is to be transparent and provide clear information about the processing of personal data, the choices available to you, and how you can exercise your rights.',
+      },
+      controller: {
+        title: 'Data controller',
+        companyLabel: 'Company: ',
+        companyValue: 'Simalian',
+        taxIdLabel: 'NIF/CIF: ',
+        taxIdValue: '[IF APPLICABLE]',
+        addressLabel: 'Address: ',
+        addressValue: '[YOUR ADDRESS]',
+        emailLabel: 'Contact email: ',
+        emailValue: 'comercial@simalian.com',
+      },
+      purposes: {
+        title: 'Purposes of data processing',
+        intro:
+          'We process personal data only when necessary and for specific, legitimate purposes. The most common purposes are:',
+        dataLabel: 'Data collected:',
+        quote: {
+          title: 'Quote request: ',
+          desc: 'To manage your request, prepare a proposal, answer questions, and follow up on your inquiry.',
+          data:
+            'Name, email, phone number (if provided), company (if applicable), message content, selected service/company size (if provided), and file attachments (if sent).',
+        },
+        marketing: {
+          title: 'Marketing: ',
+          desc:
+            'This website does not currently provide newsletter subscriptions or automated marketing campaigns via the contact form. If marketing communications are added in the future, we will provide notice and request consent where required.',
+          data: 'Not applicable in the current website configuration.',
+        },
+        contact: {
+          title: 'Contact with the user: ',
+          desc: 'To respond to messages, provide support, and manage communications initiated by you.',
+          data:
+            'Name, email, phone number (optional), message content, file attachments (if sent), and communication history (e.g., email threads).',
+        },
+      },
+      legalBasis: {
+        title: 'Legal basis for processing',
+        intro:
+          'Depending on the context, we rely on one or more of the following legal bases:',
+        consent: { title: 'Consent: ', text: 'When you explicitly authorize processing (e.g., marketing or non-essential cookies).' },
+        contract: {
+          title: 'Contract / pre-contractual measures: ',
+          text: 'When processing is necessary to handle a quote request or to provide a service you requested.',
+        },
+        legalObligation: { title: 'Legal obligation: ', text: 'When we must comply with applicable laws and regulatory requirements.' },
+        legitimateInterest: {
+          title: 'Legitimate interest: ',
+          text:
+            'When we have a legitimate business reason (e.g., security, preventing fraud, improving the website), provided it does not override your rights.',
+        },
+      },
+      retention: {
+        title: 'Data retention',
+        p1:
+          'We keep personal data only for as long as necessary to fulfill the purpose for which it was collected and, afterwards, for the periods required by law or to address potential liabilities.',
+        item1:
+          'Quote requests and contact messages: retained for the time needed to manage the request and a reasonable follow-up period, primarily as email correspondence and operational records.',
+        item2:
+          'Legal obligations: certain information may be retained for legally required periods (e.g., to handle claims or respond to lawful requests).',
+        item3:
+          'Providers and international transfers: contact form delivery is handled by technology providers (e.g., email services). If any provider processes data outside the EEA, appropriate safeguards (such as standard contractual clauses) will be applied where required.',
+      },
+      rights: {
+        title: 'User rights',
+        intro: 'You may exercise the following rights, where applicable:',
+        access: { title: 'Access: ', text: 'Know what data we process and obtain a copy.' },
+        rectification: { title: 'Rectification: ', text: 'Correct inaccurate or incomplete data.' },
+        erasure: { title: 'Erasure: ', text: 'Request deletion of your data when legally possible.' },
+        object: { title: 'Objection: ', text: 'Object to processing in certain situations (e.g., marketing).' },
+        portability: { title: 'Portability: ', text: 'Receive your data in a structured format and, when possible, transfer it.' },
+        restriction: { title: 'Restriction: ', text: 'Limit processing under certain circumstances.' },
+        noAutomation: {
+          title: 'No automated decisions: ',
+          text: 'Not to be subject to decisions based solely on automated processing that produce legal or significant effects.',
+        },
+        howTo:
+          'To exercise your rights, send an email to [YOUR EMAIL] with the subject “Data Protection”, indicating your name and the right you wish to exercise. We may request information to verify your identity where necessary.',
+      },
+      security: {
+        title: 'Security and confidentiality',
+        p1:
+          'We implement reasonable technical and organizational measures to protect personal data against unauthorized access, loss, alteration, disclosure, or destruction, taking into account risks, data nature, and current best practices.',
+      },
+      cookies: {
+        title: 'Cookie Policy',
+        what: {
+          title: '9.1 What are cookies?',
+          text:
+            'Cookies are small files stored on your device when you visit a website. They help the website work properly, remember preferences, and, in some cases, measure how the site is used. Websites may also use similar technologies (such as local browser storage) for comparable purposes.',
+        },
+        types: {
+          title: '9.2 Types of cookies',
+          item1: 'First-party / third-party cookies.',
+          item2: 'Session / persistent cookies.',
+          item3: 'Technical (necessary) / personalization cookies.',
+          item4: 'Analytics / marketing cookies.',
+        },
+        used: {
+          title: '9.3 Cookies used',
+          intro:
+            'In the current configuration, this site does not set third-party analytics or marketing cookies. It may use necessary third-party services to deliver the website:',
+          ga: { title: 'Third-party analytics: ', text: 'Not currently used.' },
+          recaptcha: { title: 'Anti-spam (reCAPTCHA or similar): ', text: 'Not currently used.' },
+          wordpress: { title: 'CMS (WordPress): ', text: 'Not currently used.' },
+          others: {
+            title: 'Services actually used: ',
+            text:
+              'Google Fonts for typography, and CDN-hosted libraries/styles (e.g., Font Awesome via jsDelivr). When you choose to use WhatsApp, we open a `wa.me` link. Contact form delivery is handled by an email service provider (Resend) to deliver your message to our inbox.',
+          },
+        },
+        manage: {
+          title: '9.4 Cookie management',
+          p1:
+            'You can delete or configure cookies via your browser settings. This site also uses local storage to remember your preferences (such as the cookie notice choice and language). If you clear site data in your browser, these preferences may reset. Disabling technical elements may affect website functionality.',
+          browser1: 'Google Chrome: Settings → Privacy and security → Cookies and other site data.',
+          browser2: 'Mozilla Firefox: Settings → Privacy & Security → Cookies and Site Data.',
+          browser3: 'Microsoft Edge: Settings → Cookies and site permissions.',
+          browser4: 'Safari: Preferences/Settings → Privacy → Manage website data.',
+        },
+      },
+      changes: {
+        title: 'Changes to this policy',
+        p1:
+          'We may update this policy to reflect legal, technical, or organizational changes. We recommend reviewing it periodically.',
+        lastUpdateLabel: 'Last update: ',
+        lastUpdateValue: '18/03/2026',
+      },
     },
     whatsapp: {
       companyName: 'SIMALIAN',
@@ -700,21 +818,146 @@ export const translations = {
     },
     protecaoDados: {
       sectionLabel: 'Legal',
-      title: 'Protección de Datos',
-      subtitle: 'Resumen de la normativa de protección de datos aplicable a nuestra actividad en España.',
-      contentHeading: 'Contenido sobre protección de datos',
-      intro: 'La protección de datos en España se rige por el RGPD (Reglamento General de Protección de Datos de la UE) y se adapta por la LOPDGDD (Ley Orgánica 3/2018). Las empresas deben garantizar transparencia y consentimiento para evitar sanciones de hasta 20 millones de euros o el 4% del volumen de negocio anual global. La Agencia Española de Protección de Datos (AEPD) supervisa el cumplimiento.',
-      mainPointsTitle: 'Puntos principales',
-      rgpdTitle: 'RGPD + LOPDGDD: ',
-      rgpdText: 'El RGPD es la base europea, mientras que la LOPDGDD es la ley española específica que refuerza los derechos digitales.',
-      consentTitle: 'Consentimiento y derechos: ',
-      consentText: 'La ley exige consentimiento claro y garantiza a los usuarios derechos de acceso, rectificación, supresión y portabilidad.',
-      aepdTitle: 'AEPD: ',
-      aepdText: 'La AEPD es la autoridad que supervisa y sanciona las vulneraciones de datos en España.',
-      sancionesTitle: 'Sanciones: ',
-      sancionesText: 'El incumplimiento en materia de datos puede dar lugar a multas graves, divididas en leves, graves (hasta 300.000 €) y muy graves (hasta 20 millones de euros o el 4% del volumen de negocio).',
-      lgpdTitle: 'LGPD en Brasil: ',
-      lgpdText: 'Cabe señalar que la LGPD es la ley brasileña, mientras que el RGPD es el equivalente europeo.',
+      title: 'Política de Privacidad y Cookies',
+      subtitle: 'Información clara sobre el uso de datos personales, sus derechos y el empleo de cookies en este sitio web.',
+      contentHeading: 'Contenido de privacidad y cookies',
+      intro:
+        'Esta Política de Privacidad y Cookies se aplica a todos los usuarios de este sitio web. Explica qué se considera “usuario”, qué datos tratamos, con qué finalidades, qué base legal nos ampara, durante cuánto tiempo conservamos la información y cómo puede ejercer sus derechos. También describe el uso de tecnologías similares a cookies (por ejemplo, almacenamiento local del navegador).',
+      general: {
+        title: 'Información general',
+        p1:
+          'La política es aplicable a cualquier persona que acceda, navegue o interactúe con el sitio, incluyendo quienes completen formularios, soliciten presupuesto, se pongan en contacto o utilicen funcionalidades disponibles.',
+        p2:
+          'El objetivo es garantizar transparencia sobre el tratamiento de datos personales y ofrecer una explicación comprensible de sus derechos y opciones de control.',
+      },
+      controller: {
+        title: 'Responsable del tratamiento',
+        companyLabel: 'Empresa: ',
+        companyValue: 'Simalian',
+        taxIdLabel: 'NIF/CIF: ',
+        taxIdValue: '[SI APLICA]',
+        addressLabel: 'Dirección: ',
+        addressValue: '[SU DIRECCIÓN]',
+        emailLabel: 'Email de contacto: ',
+        emailValue: 'comercial@simalian.com',
+      },
+      purposes: {
+        title: 'Finalidad del tratamiento de datos',
+        intro:
+          'Tratamos datos personales únicamente cuando existe una finalidad determinada y legítima. A continuación, se describen las finalidades más habituales:',
+        dataLabel: 'Datos recopilados:',
+        quote: {
+          title: 'Solicitud de presupuesto: ',
+          desc: 'Gestionar su solicitud, elaborar propuestas, resolver dudas y realizar seguimiento de la petición.',
+          data:
+            'Nombre y apellidos, email, teléfono (si se facilita), empresa (si aplica), contenido del mensaje, servicio/porte (si se seleccionan) y archivos adjuntos (si se envían).',
+        },
+        marketing: {
+          title: 'Fines de marketing: ',
+          desc:
+            'Actualmente, este sitio web no ofrece suscripción a newsletters ni realiza campañas de marketing automatizadas a través del formulario de contacto. Si en el futuro se habilitan comunicaciones comerciales, se informará y se solicitará el consentimiento cuando corresponda.',
+          data: 'No aplica en la configuración actual del sitio.',
+        },
+        contact: {
+          title: 'Contacto con el usuario: ',
+          desc: 'Atender consultas, solicitudes de soporte y comunicaciones iniciadas por el usuario.',
+          data:
+            'Nombre, email, teléfono (opcional), contenido del mensaje, archivos adjuntos (si se envían) e historial de comunicaciones (por ejemplo, correos electrónicos).',
+        },
+      },
+      legalBasis: {
+        title: 'Base legal para el tratamiento',
+        intro:
+          'Según el caso, el tratamiento puede basarse en una o varias de las siguientes bases legales:',
+        consent: { title: 'Consentimiento: ', text: 'Cuando el usuario acepta de forma expresa (por ejemplo, marketing o cookies no necesarias).' },
+        contract: {
+          title: 'Ejecución de contrato o medidas precontractuales: ',
+          text: 'Cuando el tratamiento es necesario para gestionar una solicitud de presupuesto o prestar un servicio solicitado.',
+        },
+        legalObligation: { title: 'Obligación legal: ', text: 'Cuando debamos cumplir obligaciones normativas aplicables.' },
+        legitimateInterest: {
+          title: 'Interés legítimo: ',
+          text:
+            'Cuando exista un interés empresarial razonable (por ejemplo, seguridad del sitio o prevención de fraude), siempre que no prevalezcan sus derechos.',
+        },
+      },
+      retention: {
+        title: 'Conservación de los datos',
+        p1:
+          'Los datos se conservan únicamente durante el tiempo necesario para cumplir la finalidad para la que fueron recopilados y, posteriormente, durante los plazos exigidos por ley o mientras puedan derivarse responsabilidades.',
+        item1:
+          'Retención por finalidad: las solicitudes y mensajes se conservan el tiempo necesario para su gestión y un periodo razonable de seguimiento, principalmente en forma de correspondencia (email) y registros operativos.',
+        item2:
+          'Obligaciones legales: cierta información puede conservarse durante los plazos mínimos exigidos por normativa (por ejemplo, para atender reclamaciones o requerimientos de autoridades).',
+        item3:
+          'Transferencias y proveedores: el envío de mensajes se realiza mediante proveedores tecnológicos (por ejemplo, servicios de email). Si dichos proveedores tratan datos fuera del EEE, se aplicarán garantías adecuadas (p. ej., cláusulas contractuales tipo), cuando corresponda.',
+      },
+      rights: {
+        title: 'Derechos del usuario',
+        intro: 'El usuario puede ejercer, cuando proceda, los siguientes derechos:',
+        access: { title: 'Acceso: ', text: 'Saber qué datos tratamos y obtener información sobre el tratamiento.' },
+        rectification: { title: 'Rectificación: ', text: 'Solicitar la corrección de datos inexactos o incompletos.' },
+        erasure: { title: 'Supresión: ', text: 'Pedir la eliminación de sus datos cuando resulte legalmente aplicable.' },
+        object: { title: 'Oposición: ', text: 'Oponerse al tratamiento en determinadas circunstancias (por ejemplo, marketing).' },
+        portability: { title: 'Portabilidad: ', text: 'Recibir ciertos datos en formato estructurado o solicitar su transmisión a otro responsable.' },
+        restriction: { title: 'Limitación: ', text: 'Solicitar la restricción del tratamiento en supuestos específicos.' },
+        noAutomation: {
+          title: 'No decisiones automatizadas: ',
+          text:
+            'No ser objeto de decisiones basadas únicamente en tratamientos automatizados, incluida la elaboración de perfiles, cuando produzcan efectos jurídicos o significativos.',
+        },
+        howTo:
+          'Para ejercer sus derechos, escriba a [SU EMAIL] con el asunto “Protección de datos”, indicando su nombre completo y el derecho que desea ejercer. Podremos solicitar información adicional para verificar su identidad cuando sea necesario.',
+      },
+      security: {
+        title: 'Seguridad y confidencialidad',
+        p1:
+          'Aplicamos medidas técnicas y organizativas razonables para proteger los datos personales frente a accesos no autorizados, pérdida, alteración, divulgación o destrucción, teniendo en cuenta la naturaleza de la información y los riesgos asociados.',
+      },
+      cookies: {
+        title: 'Política de Cookies',
+        what: {
+          title: '9.1 Qué son las cookies',
+          text:
+            'Las cookies son pequeños archivos que se almacenan en el dispositivo del usuario al visitar un sitio web. Ayudan al funcionamiento del sitio, a recordar preferencias y, en algunos casos, a medir el uso del sitio para mejorarlo. Además, algunos sitios pueden utilizar tecnologías similares (por ejemplo, almacenamiento local del navegador) con finalidades equivalentes.',
+        },
+        types: {
+          title: '9.2 Tipos de cookies',
+          item1: 'Propias / de terceros.',
+          item2: 'De sesión / persistentes.',
+          item3: 'Técnicas (necesarias) / de personalización.',
+          item4: 'De análisis / de marketing.',
+        },
+        used: {
+          title: '9.3 Cookies utilizadas',
+          intro:
+            'En la configuración actual, este sitio no instala cookies de analítica o marketing de terceros. Sí puede utilizar tecnologías y servicios de terceros necesarios para la prestación del sitio:',
+          ga: { title: 'Analítica de terceros: ', text: 'No utilizada actualmente.' },
+          recaptcha: { title: 'Anti-spam (reCAPTCHA u otros): ', text: 'No utilizado actualmente.' },
+          wordpress: { title: 'CMS (WordPress): ', text: 'No utilizado actualmente.' },
+          others: {
+            title: 'Servicios realmente utilizados: ',
+            text:
+              'Tipografías de Google (Google Fonts) y librerías/estilos desde CDN (por ejemplo, Font Awesome vía jsDelivr). Al interactuar con WhatsApp, se abre un enlace a `wa.me`. El envío del formulario se gestiona mediante un proveedor de email (Resend) para entregar su mensaje a nuestro correo.',
+          },
+        },
+        manage: {
+          title: '9.4 Gestión de cookies',
+          p1:
+            'El usuario puede eliminar o configurar cookies desde la configuración del navegador. En este sitio, además, se utiliza almacenamiento local para recordar su preferencia (por ejemplo, el estado del aviso de cookies y el idioma). Si borra los datos del sitio en su navegador, es posible que estas preferencias se restablezcan. Deshabilitar elementos técnicos puede afectar al correcto funcionamiento del sitio.',
+          browser1: 'Google Chrome: Configuración → Privacidad y seguridad → Cookies y otros datos de sitios.',
+          browser2: 'Mozilla Firefox: Ajustes → Privacidad y seguridad → Cookies y datos del sitio.',
+          browser3: 'Microsoft Edge: Configuración → Cookies y permisos del sitio.',
+          browser4: 'Safari: Preferencias/Ajustes → Privacidad → Gestión de datos de sitios web.',
+        },
+      },
+      changes: {
+        title: 'Cambios en la política',
+        p1:
+          'Podemos actualizar esta política por motivos legales, técnicos u organizativos. Recomendamos revisarla periódicamente para estar al tanto de cualquier modificación.',
+        lastUpdateLabel: 'Última actualización: ',
+        lastUpdateValue: '18/03/2026',
+      },
     },
     whatsapp: {
       companyName: 'SIMALIAN',
@@ -1282,27 +1525,145 @@ export const translations = {
     },
     protecaoDados: {
       sectionLabel: 'Mentions légales',
-      title: 'Protection des Données',
-      subtitle: 'Aperçu de la réglementation sur la protection des données applicable à notre activité en Espagne.',
-      contentHeading: 'Contenu protection des données',
-      intro: 'La protection des données en Espagne est régie par le RGPD (Règlement général sur la protection des données de l\'UE) et adaptée par la LOPDGDD (Loi organique 3/2018). Les entreprises doivent garantir la transparence et le consentement pour éviter des amendes pouvant aller jusqu\'à 20 millions d\'euros ou 4 % du chiffre d\'affaires annuel mondial. L\'Agence espagnole de protection des données (AEPD) supervise la conformité.',
-      mainPointsTitle: 'Points principaux',
-      rgpdTitle: 'RGPD + LOPDGDD : ',
-      rgpdText: 'Le RGPD est la base européenne, tandis que la LOPDGDD est la loi espagnole spécifique qui renforce les droits numériques.',
-      consentTitle: 'Consentement et droits : ',
-      consentText: 'La loi exige un consentement clair et garantit aux utilisateurs les droits d\'accès, de rectification, d\'effacement et de portabilité.',
-      aepdTitle: 'AEPD : ',
-      aepdText: 'L\'AEPD est l\'autorité qui surveille et sanctionne les violations de données en Espagne.',
-      sancionesTitle: 'Sanctions : ',
-      sancionesText: 'Une violation des données peut entraîner de lourdes amendes, réparties en mineures, graves (jusqu\'à 300 000 €) et très graves (jusqu\'à 20 millions d\'euros ou 4 % du chiffre d\'affaires).',
-      lgpdTitle: 'LGPD au Brésil : ',
-      lgpdText: 'À noter que la LGPD est la loi brésilienne, tandis que le RGPD est l\'équivalent européen.',
-      termosTitle: 'Conditions d\'utilisation',
-      termosText: 'L\'utilisation de ce site implique l\'acceptation des présentes conditions. Le contenu est à titre informatif. SIMALIAN PROJECTS se réserve le droit de modifier le contenu et les présentes conditions. Pour toute question juridique ou de protection des données, contactez-nous ou consultez l\'AEPD.',
-      cookiesTitle: 'Cookies',
-      cookiesIntro: 'Ce site n\'utilise que les cookies nécessaires à son fonctionnement et pour enregistrer votre préférence de consentement :',
-      cookiesItem1: 'Enregistrement du consentement : nous stockons votre choix (accepter/refuser) pour ne plus afficher la bannière. Cette donnée est stockée localement dans votre navigateur et n\'est envoyée à aucun serveur.',
-      cookiesItem2: 'Nous n\'utilisons pas de cookies publicitaires ni d\'analyse tiers sans votre consentement préalable.',
+      title: 'Politique de confidentialité et cookies',
+      subtitle: 'Informations sur la façon dont nous traitons les données personnelles et sur l’utilisation des cookies sur ce site.',
+      contentHeading: 'Contenu confidentialité et cookies',
+      intro:
+        'Cette Politique de confidentialité et cookies s’applique à tous les utilisateurs de ce site. Elle explique ce que nous entendons par “utilisateur”, quelles données nous traitons, à quelles fins, sur quelle base juridique, pendant combien de temps elles sont conservées et quels sont vos droits. Elle décrit également l’utilisation des cookies et de technologies similaires (comme le stockage local du navigateur).',
+      general: {
+        title: 'Informations générales',
+        p1:
+          'Cette politique s’applique à toute personne qui accède, navigue ou interagit avec le site, y compris celles qui soumettent des formulaires, demandent un devis, nous contactent ou utilisent les fonctionnalités disponibles.',
+        p2:
+          'Notre objectif est d’être transparents et de fournir des informations claires sur le traitement des données personnelles, les choix dont vous disposez et la manière d’exercer vos droits.',
+      },
+      controller: {
+        title: 'Responsable du traitement',
+        companyLabel: 'Entreprise : ',
+        companyValue: 'Simalian',
+        taxIdLabel: 'NIF/CIF : ',
+        taxIdValue: '[SI APPLICABLE]',
+        addressLabel: 'Adresse : ',
+        addressValue: '[VOTRE ADRESSE]',
+        emailLabel: 'E-mail de contact : ',
+        emailValue: 'comercial@simalian.com',
+      },
+      purposes: {
+        title: 'Finalités du traitement des données',
+        intro:
+          'Nous traitons les données personnelles uniquement lorsque cela est nécessaire et pour des finalités spécifiques et légitimes. Les finalités les plus courantes sont :',
+        dataLabel: 'Données collectées :',
+        quote: {
+          title: 'Demande de devis : ',
+          desc: 'Gérer votre demande, préparer une proposition, répondre aux questions et assurer le suivi.',
+          data:
+            'Nom, e-mail, téléphone (si fourni), entreprise (si applicable), contenu du message, service/taille d’entreprise sélectionnés (si fournis) et pièces jointes (si envoyées).',
+        },
+        marketing: {
+          title: 'Marketing : ',
+          desc:
+            'Ce site ne propose pas actuellement d’inscription à une newsletter ni de campagnes marketing automatisées via le formulaire de contact. Si des communications marketing sont ajoutées à l’avenir, nous en informerons les utilisateurs et demanderons le consentement lorsque requis.',
+          data: 'Non applicable dans la configuration actuelle du site.',
+        },
+        contact: {
+          title: 'Contact avec l’utilisateur : ',
+          desc: 'Répondre aux messages, fournir une assistance et gérer les communications initiées par vous.',
+          data:
+            'Nom, e-mail, téléphone (optionnel), contenu du message, pièces jointes (si envoyées) et historique des communications (par ex. échanges e-mail).',
+        },
+      },
+      legalBasis: {
+        title: 'Base juridique du traitement',
+        intro:
+          'Selon le contexte, nous nous appuyons sur une ou plusieurs des bases juridiques suivantes :',
+        consent: { title: 'Consentement : ', text: 'Lorsque vous autorisez explicitement le traitement (par ex. marketing ou cookies non essentiels).' },
+        contract: {
+          title: 'Contrat / mesures précontractuelles : ',
+          text: 'Lorsque le traitement est nécessaire pour gérer une demande de devis ou fournir un service que vous avez sollicité.',
+        },
+        legalObligation: { title: 'Obligation légale : ', text: 'Lorsque nous devons respecter les lois et exigences réglementaires applicables.' },
+        legitimateInterest: {
+          title: 'Intérêt légitime : ',
+          text:
+            'Lorsque nous avons une raison légitime (par ex. sécurité, prévention de la fraude, amélioration du site), à condition que cela ne prévale pas sur vos droits.',
+        },
+      },
+      retention: {
+        title: 'Conservation des données',
+        p1:
+          'Nous conservons les données personnelles uniquement pendant la durée nécessaire à la réalisation de la finalité pour laquelle elles ont été collectées et, ensuite, pendant les périodes requises par la loi ou pour traiter d’éventuelles responsabilités.',
+        item1:
+          'Demandes de devis et messages de contact : conservés le temps nécessaire pour gérer la demande et une période raisonnable de suivi, principalement sous forme de correspondance e-mail et d’enregistrements opérationnels.',
+        item2:
+          'Obligations légales : certaines informations peuvent être conservées pendant les périodes légales requises (par ex. pour gérer des réclamations ou répondre à des demandes légitimes).',
+        item3:
+          'Prestataires et transferts internationaux : l’envoi du formulaire de contact est géré par des prestataires technologiques (par ex. services e-mail). Si un prestataire traite des données en dehors de l’EEE, des garanties appropriées (telles que des clauses contractuelles types) seront appliquées lorsque requis.',
+      },
+      rights: {
+        title: 'Droits de l’utilisateur',
+        intro: 'Vous pouvez exercer les droits suivants, lorsque cela s’applique :',
+        access: { title: 'Accès : ', text: 'Savoir quelles données nous traitons et en obtenir une copie.' },
+        rectification: { title: 'Rectification : ', text: 'Corriger des données inexactes ou incomplètes.' },
+        erasure: { title: 'Effacement : ', text: 'Demander la suppression de vos données lorsque cela est légalement possible.' },
+        object: { title: 'Opposition : ', text: 'Vous opposer au traitement dans certains cas (par ex. marketing).' },
+        portability: { title: 'Portabilité : ', text: 'Recevoir vos données dans un format structuré et, lorsque possible, les transférer.' },
+        restriction: { title: 'Limitation : ', text: 'Limiter le traitement dans certaines circonstances.' },
+        noAutomation: {
+          title: 'Pas de décisions automatisées : ',
+          text: 'Ne pas faire l’objet de décisions fondées uniquement sur un traitement automatisé produisant des effets juridiques ou significatifs.',
+        },
+        howTo:
+          'Pour exercer vos droits, envoyez un e-mail à [VOTRE EMAIL] avec l’objet “Protection des données”, en indiquant votre nom complet et le droit que vous souhaitez exercer. Nous pouvons demander des informations supplémentaires pour vérifier votre identité lorsque nécessaire.',
+      },
+      security: {
+        title: 'Sécurité et confidentialité',
+        p1:
+          'Nous mettons en œuvre des mesures techniques et organisationnelles raisonnables pour protéger les données personnelles contre l’accès non autorisé, la perte, l’altération, la divulgation ou la destruction, en tenant compte des risques, de la nature des données et des meilleures pratiques.',
+      },
+      cookies: {
+        title: 'Politique de cookies',
+        what: {
+          title: '9.1 Que sont les cookies ?',
+          text:
+            'Les cookies sont de petits fichiers stockés sur votre appareil lorsque vous visitez un site web. Ils aident le site à fonctionner correctement, à mémoriser des préférences et, dans certains cas, à mesurer l’utilisation du site. Les sites peuvent aussi utiliser des technologies similaires (comme le stockage local du navigateur) à des fins comparables.',
+        },
+        types: {
+          title: '9.2 Types de cookies',
+          item1: 'Cookies internes / cookies tiers.',
+          item2: 'Cookies de session / persistants.',
+          item3: 'Cookies techniques (nécessaires) / de personnalisation.',
+          item4: 'Cookies d’analyse / marketing.',
+        },
+        used: {
+          title: '9.3 Cookies utilisés',
+          intro:
+            'Dans la configuration actuelle, ce site ne dépose pas de cookies d’analyse ou marketing de tiers. Il peut toutefois utiliser des services tiers nécessaires pour fournir le site :',
+          ga: { title: 'Analyse tiers : ', text: 'Non utilisé actuellement.' },
+          recaptcha: { title: 'Anti-spam (reCAPTCHA ou similaire) : ', text: 'Non utilisé actuellement.' },
+          wordpress: { title: 'CMS (WordPress) : ', text: 'Non utilisé actuellement.' },
+          others: {
+            title: 'Services effectivement utilisés : ',
+            text:
+              'Google Fonts pour la typographie, et des bibliothèques/styles via CDN (par ex. Font Awesome via jsDelivr). Lorsque vous choisissez d’utiliser WhatsApp, nous ouvrons un lien `wa.me`. L’envoi du formulaire de contact est géré par un prestataire d’e-mail (Resend) afin de livrer votre message dans notre boîte de réception.',
+          },
+        },
+        manage: {
+          title: '9.4 Gestion des cookies',
+          p1:
+            'Vous pouvez supprimer ou configurer les cookies via les paramètres de votre navigateur. Ce site utilise également le stockage local pour mémoriser vos préférences (comme votre choix sur l’avis cookies et la langue). Si vous effacez les données du site dans votre navigateur, ces préférences peuvent être réinitialisées. Désactiver des éléments techniques peut affecter le fonctionnement du site.',
+          browser1: 'Google Chrome : Paramètres → Confidentialité et sécurité → Cookies et autres données des sites.',
+          browser2: 'Mozilla Firefox : Paramètres → Vie privée et sécurité → Cookies et données de sites.',
+          browser3: 'Microsoft Edge : Paramètres → Cookies et autorisations de site.',
+          browser4: 'Safari : Préférences/Réglages → Confidentialité → Gérer les données de sites web.',
+        },
+      },
+      changes: {
+        title: 'Modifications de cette politique',
+        p1:
+          'Nous pouvons mettre à jour cette politique pour refléter des changements juridiques, techniques ou organisationnels. Nous recommandons de la consulter périodiquement.',
+        lastUpdateLabel: 'Dernière mise à jour : ',
+        lastUpdateValue: '18/03/2026',
+      },
     },
     whatsapp: {
       companyName: 'SIMALIAN',
@@ -1756,27 +2117,145 @@ export const translations = {
     },
     protecaoDados: {
       sectionLabel: 'Legal',
-      title: 'Protecció de Dades',
-      subtitle: 'Resum de la normativa de protecció de dades aplicable a la nostra activitat a Espanya.',
-      contentHeading: 'Contingut sobre protecció de dades',
-      intro: 'La protecció de dades a Espanya es regeix pel RGPD (Reglament General de Protecció de Dades de la UE) i s\'adapta per la LOPDGDD (Llei Orgànica 3/2018). Les empreses han de garantir transparència i consentiment per evitar sancions de fins a 20 milions d\'euros o el 4% del volum de negocis anual global. L\'Agència Espanyola de Protecció de Dades (AEPD) supervisa el compliment.',
-      mainPointsTitle: 'Punts principals',
-      rgpdTitle: 'RGPD + LOPDGDD: ',
-      rgpdText: 'El RGPD és la base europea, mentre que la LOPDGDD és la llei espanyola específica que reforça els drets digitals.',
-      consentTitle: 'Consentiment i drets: ',
-      consentText: 'La llei exigeix consentiment clar i garanteix als usuaris drets d\'accés, rectificació, supressió i portabilitat.',
-      aepdTitle: 'AEPD: ',
-      aepdText: 'L\'AEPD és l\'autoritat que supervisa i sanciona les vulneracions de dades a Espanya.',
-      sancionesTitle: 'Sancions: ',
-      sancionesText: 'El compliment en matèria de dades pot donar lloc a multes greus, dividides en lleus, greus (fins a 300.000 €) i molt greus (fins a 20 milions d\'euros o el 4% del volum de negocis).',
-      lgpdTitle: 'LGPD al Brasil: ',
-      lgpdText: 'Cal assenyalar que la LGPD és la llei brasilera, mentre que el RGPD és l\'equivalent europeu.',
-      termosTitle: 'Termes d\'Ús',
-      termosText: 'L\'ús d\'aquest lloc web implica l\'acceptació d\'aquests termes. El contingut té caràcter informatiu. SIMALIAN PROJECTS es reserva el dret de modificar el contingut i els presents termes. Per a qualsevol qüestió legal o de protecció de dades, contacteu amb nosaltres o consulteu l\'AEPD.',
-      cookiesTitle: 'Cookies',
-      cookiesIntro: 'Aquest lloc utilitza únicament les cookies necessàries per al seu funcionament i per registrar la vostra preferència de consentiment:',
-      cookiesItem1: 'Registre de consentiment: guardem la vostra elecció (acceptar/rebutjar) per no tornar a mostrar la bannera. Aquesta dada s\'emmagatzema de forma local al vostre navegador i no s\'envia a cap servidor.',
-      cookiesItem2: 'No utilitzem cookies publicitàries ni d\'anàlisi de tercers sense el vostre consentiment previ.',
+      title: 'Política de privacitat i galetes',
+      subtitle: 'Informació sobre com tractem les dades personals i com s’utilitzen les galetes en aquest lloc web.',
+      contentHeading: 'Contingut de privacitat i galetes',
+      intro:
+        'Aquesta Política de privacitat i galetes s’aplica a tots els usuaris d’aquest lloc web. Explica què entenem per “usuari”, quines dades tractem, amb quines finalitats, sobre quina base legal, quant de temps es conserven i quins drets teniu sobre les vostres dades personals. També descriu l’ús de galetes i tecnologies similars (com l’emmagatzematge local del navegador).',
+      general: {
+        title: 'Informació general',
+        p1:
+          'Aquesta política s’aplica a qualsevol persona que accedeixi, navegui o interactuï amb el lloc web, incloent-hi qui enviï formularis, sol·liciti pressupost, ens contacti o utilitzi qualsevol funcionalitat disponible.',
+        p2:
+          'El nostre objectiu és ser transparents i oferir informació clara sobre el tractament de dades personals, les opcions disponibles i com podeu exercir els vostres drets.',
+      },
+      controller: {
+        title: 'Responsable del tractament',
+        companyLabel: 'Empresa: ',
+        companyValue: 'Simalian',
+        taxIdLabel: 'NIF/CIF: ',
+        taxIdValue: '[SI ESCAU]',
+        addressLabel: 'Adreça: ',
+        addressValue: '[LA VOSTRA ADREÇA]',
+        emailLabel: 'Correu de contacte: ',
+        emailValue: 'comercial@simalian.com',
+      },
+      purposes: {
+        title: 'Finalitats del tractament de dades',
+        intro:
+          'Tractem dades personals només quan és necessari i per a finalitats específiques i legítimes. Les finalitats més habituals són:',
+        dataLabel: 'Dades recollides:',
+        quote: {
+          title: 'Sol·licitud de pressupost: ',
+          desc: 'Gestionar la vostra sol·licitud, elaborar una proposta, resoldre dubtes i fer seguiment.',
+          data:
+            'Nom, correu electrònic, telèfon (si es facilita), empresa (si escau), contingut del missatge, servei/dimensió seleccionats (si es faciliten) i fitxers adjunts (si s’envien).',
+        },
+        marketing: {
+          title: 'Màrqueting: ',
+          desc:
+            'Aquest lloc web no ofereix actualment subscripcions a newsletters ni campanyes de màrqueting automatitzades via el formulari de contacte. Si en el futur s’afegeixen comunicacions comercials, n’informarem i demanarem consentiment quan sigui necessari.',
+          data: 'No aplicable en la configuració actual del lloc.',
+        },
+        contact: {
+          title: 'Contacte amb l’usuari: ',
+          desc: 'Respondre missatges, oferir suport i gestionar comunicacions iniciades per vosaltres.',
+          data:
+            'Nom, correu electrònic, telèfon (opcional), contingut del missatge, fitxers adjunts (si s’envien) i historial de comunicacions (p. ex., fils de correu).',
+        },
+      },
+      legalBasis: {
+        title: 'Base legal del tractament',
+        intro:
+          'Depenent del context, ens basem en una o més de les bases legals següents:',
+        consent: { title: 'Consentiment: ', text: 'Quan autoritzeu explícitament el tractament (p. ex., màrqueting o galetes no essencials).' },
+        contract: {
+          title: 'Contracte / mesures precontractuals: ',
+          text: 'Quan el tractament és necessari per gestionar una sol·licitud de pressupost o prestar un servei sol·licitat.',
+        },
+        legalObligation: { title: 'Obligació legal: ', text: 'Quan hem de complir les lleis i requisits normatius aplicables.' },
+        legitimateInterest: {
+          title: 'Interès legítim: ',
+          text:
+            'Quan tenim un motiu empresarial legítim (p. ex., seguretat, prevenció de frau, millora del lloc), sempre que no prevalguin els vostres drets.',
+        },
+      },
+      retention: {
+        title: 'Conservació de les dades',
+        p1:
+          'Conservem les dades personals només durant el temps necessari per complir la finalitat per a la qual es van recollir i, posteriorment, durant els períodes exigits per llei o per atendre possibles responsabilitats.',
+        item1:
+          'Sol·licituds de pressupost i missatges de contacte: es conserven el temps necessari per gestionar la petició i un període raonable de seguiment, principalment com a correspondència (correu electrònic) i registres operatius.',
+        item2:
+          'Obligacions legals: certa informació pot conservar-se durant els períodes mínims exigits (p. ex., per gestionar reclamacions o respondre requeriments legítims).',
+        item3:
+          'Proveïdors i transferències internacionals: l’enviament del formulari de contacte es gestiona amb proveïdors tecnològics (p. ex., serveis de correu). Si algun proveïdor tracta dades fora de l’EEE, s’aplicaran garanties adequades (com clàusules contractuals tipus) quan sigui necessari.',
+      },
+      rights: {
+        title: 'Drets de l’usuari',
+        intro: 'Podeu exercir els drets següents, quan s’escaigui:',
+        access: { title: 'Accés: ', text: 'Saber quines dades tractem i obtenir-ne una còpia.' },
+        rectification: { title: 'Rectificació: ', text: 'Corregir dades inexactes o incompletes.' },
+        erasure: { title: 'Supressió: ', text: 'Sol·licitar l’eliminació de les dades quan sigui legalment possible.' },
+        object: { title: 'Oposició: ', text: 'Oposar-se al tractament en determinades situacions (p. ex., màrqueting).' },
+        portability: { title: 'Portabilitat: ', text: 'Rebre les dades en un format estructurat i, quan sigui possible, transferir-les.' },
+        restriction: { title: 'Limitació: ', text: 'Limitar el tractament en determinades circumstàncies.' },
+        noAutomation: {
+          title: 'Sense decisions automatitzades: ',
+          text: 'No ser objecte de decisions basades únicament en tractaments automatitzats que produeixin efectes jurídics o significatius.',
+        },
+        howTo:
+          'Per exercir els vostres drets, envieu un correu a [EL VOSTRE EMAIL] amb l’assumpte “Protecció de dades”, indicant el vostre nom complet i el dret que voleu exercir. Podem demanar informació addicional per verificar la vostra identitat quan sigui necessari.',
+      },
+      security: {
+        title: 'Seguretat i confidencialitat',
+        p1:
+          'Implementem mesures tècniques i organitzatives raonables per protegir les dades personals davant d’accés no autoritzat, pèrdua, alteració, divulgació o destrucció, tenint en compte els riscos, la naturalesa de les dades i les millors pràctiques.',
+      },
+      cookies: {
+        title: 'Política de galetes',
+        what: {
+          title: '9.1 Què són les galetes?',
+          text:
+            'Les galetes són petits fitxers que s’emmagatzemen al vostre dispositiu quan visiteu un lloc web. Ajuden el lloc a funcionar correctament, a recordar preferències i, en alguns casos, a mesurar com s’utilitza el lloc. Els llocs web també poden utilitzar tecnologies similars (com l’emmagatzematge local del navegador) amb finalitats comparables.',
+        },
+        types: {
+          title: '9.2 Tipus de galetes',
+          item1: 'Galetes pròpies / de tercers.',
+          item2: 'De sessió / persistents.',
+          item3: 'Tècniques (necessàries) / de personalització.',
+          item4: 'D’analítica / de màrqueting.',
+        },
+        used: {
+          title: '9.3 Galetes utilitzades',
+          intro:
+            'En la configuració actual, aquest lloc no estableix galetes d’analítica o màrqueting de tercers. Tot i això, pot utilitzar serveis de tercers necessaris per prestar el lloc web:',
+          ga: { title: 'Analítica de tercers: ', text: 'No s’utilitza actualment.' },
+          recaptcha: { title: 'Anti-spam (reCAPTCHA o similar): ', text: 'No s’utilitza actualment.' },
+          wordpress: { title: 'CMS (WordPress): ', text: 'No s’utilitza actualment.' },
+          others: {
+            title: 'Serveis realment utilitzats: ',
+            text:
+              'Google Fonts per a tipografia i llibreries/estils allotjats en CDN (p. ex., Font Awesome via jsDelivr). Quan trieu utilitzar WhatsApp, obrim un enllaç `wa.me`. L’enviament del formulari de contacte es gestiona mitjançant un proveïdor de correu (Resend) per lliurar el vostre missatge a la nostra bústia.',
+          },
+        },
+        manage: {
+          title: '9.4 Gestió de galetes',
+          p1:
+            'Podeu eliminar o configurar galetes des de la configuració del navegador. Aquest lloc també utilitza emmagatzematge local per recordar preferències (com l’elecció de l’avís de galetes i la llengua). Si esborreu les dades del lloc al navegador, aquestes preferències es poden restablir. Desactivar elements tècnics pot afectar el funcionament del lloc.',
+          browser1: 'Google Chrome: Configuració → Privacitat i seguretat → Galetes i altres dades de llocs.',
+          browser2: 'Mozilla Firefox: Ajustos → Privacitat i seguretat → Galetes i dades del lloc.',
+          browser3: 'Microsoft Edge: Configuració → Galetes i permisos del lloc.',
+          browser4: 'Safari: Preferències/Ajustos → Privacitat → Gestió de dades de llocs web.',
+        },
+      },
+      changes: {
+        title: 'Canvis en aquesta política',
+        p1:
+          'Podem actualitzar aquesta política per reflectir canvis legals, tècnics o organitzatius. Recomanem revisar-la periòdicament.',
+        lastUpdateLabel: 'Darrera actualització: ',
+        lastUpdateValue: '18/03/2026',
+      },
     },
     whatsapp: {
       companyName: 'SIMALIAN',
